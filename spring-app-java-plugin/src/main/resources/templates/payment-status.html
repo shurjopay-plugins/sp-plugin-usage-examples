@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Plugin Tester</title>
+<link th:href="@{/css/style.css}" th:rel="stylesheet" />
+</head>
+<body>
+	<h2>Payment Status</h2>
+
+	<table th:object="${paymentStat}">
+		<tr>
+			<td>Invoice No</td>
+			<td th:text="*{invoiceNo}"></td>
+		</tr>
+		<tr>
+			<td>Customer</td>
+			<td th:text="*{name}"></td>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td th:text="*{amount}"></td>
+		</tr>
+		<tr>
+			<td>Payable Amount</td>
+			<td th:text="*{payableAmount}"></td>
+		</tr>
+		<tr>
+			<td>Card Holder</td>
+			<td th:text="*{cardHolder}"></td>
+		</tr>
+		<tr>
+			<td>Bank Status</td>
+			<td th:text="*{bankStatus}"></td>
+		</tr>
+		<tr>
+			<td>Payment Status</td>
+			<td th:text="*{statusMsg}"></td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td th:text="*{address}"></td>
+		</tr>
+		<tr>
+			<td>City</td>
+			<td th:text="*{city}"></td>
+		</tr>
+	</table>
+</body>
+</html>
