@@ -1,0 +1,6 @@
+shurjopay:
+  username: sp_sandbox
+  password: pyyk97hu&6u6
+  shurjopay-api: https://sandbox.shurjopayment.com/api/
+  sp-callback: http://localhost:8080/response
+

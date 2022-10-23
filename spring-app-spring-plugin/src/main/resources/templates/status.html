@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Plugin Tester</title>
+<link th:href="@{/css/style.css}" th:rel="stylesheet" />
+</head>
+<body>
+	
+	<div class="card">
+		<h4 th:text="*{msg}"></h4>
+		<p th:text="*{orderId}"></p>
+		<a href="#" th:href="@{/payment-status/{id}(id = *{orderId})}" style="width: 100%;">View Status</a>
+	</div>
+</body>
+</html>
