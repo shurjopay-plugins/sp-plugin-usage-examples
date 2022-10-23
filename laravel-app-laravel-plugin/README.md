@@ -57,7 +57,8 @@ Shurjopayv3\SpPluginLaravel\ShurjopayServiceProvider::class
 use Shurjopayv3\SpPluginLaravel\Http\Controllers\ShurjopayController;
 ``
 
-``$info = array(
+``Please provide values of these attribute feilds by making a http_ post request in your controller's method
+
 'currency' => "",
 'amount' => ,
 'order_id' => "",
@@ -72,15 +73,15 @@ use Shurjopayv3\SpPluginLaravel\Http\Controllers\ShurjopayController;
 'customer_state' => "",
 'customer_postcode' => "",
 'customer_country' => "",
-);``
+``
 
 ``$shurjopay_service = new ShurjopayController();
-return $shurjopay_service->checkout($info);``
+return $shurjopay_service->makePayment($info);``
 
 ###### for verifying,
 
 ``$shurjopay_service = new ShurjopayController();
-return $shurjopay_service->verify($order_id);``
+return $shurjopay_service->verifyPayment($order_id);``
 
 
 ### Postman Documentations
