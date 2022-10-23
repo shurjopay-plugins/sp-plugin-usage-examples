@@ -1,64 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+![image](https://user-images.githubusercontent.com/57352037/170198396-932692aa-3354-4cf0-abc1-2b8ef43a6de3.png)
+# ShurjoPay
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Shurjopay laravel integration steps
+## Prerequisite
+To integrate ShurjoPay you need few credentials to access shurjopay:
+```
+:param prefix: Any string not more than 5 characters. It distinguishes the stores of a merchant.
+:param currency: ISO format,(only BDT and USD are allowed).
+:param return_url: Merchant should provide a GET Method return url to verify users initiated transaction status. 
+:param cancel_url: Merchant should provide a cancel url to redirect the user if he/she cancels the transaction in midway. 
+:param client_ip: User's ip
+:param username: Merchant Username provided by shurjopay.
+:param password: Merchant Password provided by shurjopay.
+:param post_address: Live shurjopay version 2 URL.
+```
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> 📝 **NOTE** For shurjoPay version 3 live engine integration's all necessary credential will be given to merchant after subscription completed on shurjoPay gateway.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+#### To integrate the shurjoPay Payment Gateway in your Laravel project do the following tasks sequentially.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Installation and Configuration
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+``composer require shurjopayv3/sp-plugin-laravel
+``
 
-## Laravel Sponsors
+###### After successful installation of shurjopay-laravel-package, go to your project and open config folder and then click on app.php file. Append the following line in providers array.
+``
+Shurjopayv3\SpPluginLaravel\ShurjopayServiceProvider::class
+``
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+###### After successfully doing the above steps add the following Keys in .env file with the credentials provided from shurjoMukhi Limited
 
-### Premium Partners
+``MERCHANT_USERNAME=""  
+``
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+``MERCHANT_PASSWORD=""
+``
 
-## Contributing
+``MERCHANT_PREFIX=""
+``
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+``MERCHANT_RETURN_URL=""
+``
 
-## Code of Conduct
+``MERCHANT_CANCEL_URL=""
+``
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+``ENGINE_URL=""
+``
+###### Now add this line of code in your method where you want to call shurjoPay Payment Gateway. You can use any code segment of below
 
-## Security Vulnerabilities
+``
+use shurjopayv2\ShurjopayLaravelPackage8\Http\Controllers\ShurjopayController;
+``
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+``$info = array(
+'currency' => "",
+'amount' => ,
+'order_id' => "",
+'discsount_amount' => ,
+'disc_percent' => ,
+'client_ip' => "",
+'customer_name' => "",
+'customer_phone' => "",
+'email' => "",
+'customer_address' => "",
+'customer_city' => "",
+'customer_state' => "",
+'customer_postcode' => "",
+'customer_country' => "",
+);``
 
-## License
+``$shurjopay_service = new ShurjopayController();
+return $shurjopay_service->checkout($info);``
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+###### for verifying,
+
+``$shurjopay_service = new ShurjopayController();
+return $shurjopay_service->verify($order_id);``
+
+
+### Postman Documentations
+
+    This document will illustrate the overall request and response flow.
+    URL : https://documenter.getpostman.com/view/6335853/U16dS8ig	
+		
+### Who do I talk to? ###
+	For any technical assistance please contact to: https://shurjopay.com.bd/#contacts
+
