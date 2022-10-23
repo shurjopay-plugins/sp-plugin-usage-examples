@@ -54,7 +54,7 @@ Shurjopayv3\SpPluginLaravel\ShurjopayServiceProvider::class
 ###### Now add this line of code in your method where you want to call shurjoPay Payment Gateway. You can use any code segment of below
 
 ``
-use shurjopayv2\ShurjopayLaravelPackage8\Http\Controllers\ShurjopayController;
+use Shurjopayv3\SpPluginLaravel\Http\Controllers\ShurjopayController;
 ``
 
 ``$info = array(
