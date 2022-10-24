@@ -10,11 +10,11 @@
 	</parent>
 	<groupId>com.shurjomukhi</groupId>
 	
-	<artifactId>sp-plugin-java-example</artifactId>
+	<artifactId>spring-app-java-plugin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>sp-plugin-java-example</name>
-	<description>Testing shurjopay java plugin</description>
+	<name>spring-app-java-plugin</name>
+	<description>Testing shurjopay java plugin for spring application</description>
 	
 	<properties>
 		<java.version>17</java.version>

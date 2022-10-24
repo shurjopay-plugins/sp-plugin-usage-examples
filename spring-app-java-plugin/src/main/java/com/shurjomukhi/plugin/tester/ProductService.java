@@ -3,7 +3,7 @@ package com.shurjomukhi.plugin.tester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.shurjopay.plugin.ShurjoPay;
+import com.shurjopay.plugin.Shurjopay;
 import com.shurjopay.plugin.model.PaymentReq;
 import com.shurjopay.plugin.model.PaymentRes;
 import com.shurjopay.plugin.model.VerifiedPayment;
@@ -16,7 +16,7 @@ import com.shurjopay.plugin.model.VerifiedPayment;
 public class ProductService {
 
 	@Autowired
-	private ShurjoPay plugin;
+	private Shurjopay plugin;
 	
 	public PaymentRes buy(Product product) {
 		PaymentReq request = new PaymentReq();
