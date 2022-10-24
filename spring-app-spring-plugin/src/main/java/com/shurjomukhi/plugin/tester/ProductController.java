@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.shurjopay.plugin.constants.ShurjopayStatus;
 import com.shurjopay.plugin.model.PaymentRes;
 /**
  * Root controller to manage product payment cycle
@@ -38,8 +39,6 @@ public class ProductController {
 
 	@PostMapping("/buy-product")
 	public String buyProduct(@ModelAttribute("product") Product product, Model model) {
-		product.setProductName("Pen");
-		product.setProductPrice(1.0);
 		PaymentRes response = service.buy(product);
 		return "redirect:" + response.getPaymentUrl();
 	}
@@ -53,10 +52,10 @@ public class ProductController {
 	@GetMapping("/response")
 	public String paymentResponse(@RequestParam("order_id") String orderId, Model model) {
 		if (service.verifyOrder(orderId)) {
-			model.addAttribute("msg", "Congrats! Your payment has been successfully submitted");
+			model.addAttribute("msg", ShurjopayStatus.SHURJOPAY_SUCCESS.status());
 			model.addAttribute("orderId", orderId);
 		} else
-			model.addAttribute("msg", "Opps! Payment submission failed");
+			model.addAttribute("msg", ShurjopayStatus.PAYMENT_FAILED.status());
 		return "status";
 	}
 
