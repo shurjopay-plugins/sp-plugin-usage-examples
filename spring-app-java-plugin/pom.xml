@@ -18,7 +18,7 @@
 	
 	<properties>
 		<java.version>17</java.version>
-		<root.path>D:/Resource</root.path>
+		<root.path>/home/alamin/git/sp-plugin-usage-examples/spring-app-java-plugin/src/test/resources</root.path>
 	</properties>
 	<repositories>
 		<repository>

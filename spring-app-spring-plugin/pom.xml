@@ -18,7 +18,7 @@
 	
 	<properties>
 		<java.version>17</java.version>
-		<root.path>D:/Resource</root.path>
+		<root.path>/spring-app-spring-plugin/src/test/resources</root.path>
 	</properties>
 	<repositories>
 		<repository>

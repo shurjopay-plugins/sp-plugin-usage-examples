@@ -10,7 +10,7 @@ import com.shurjopay.plugin.Shurjopay;
  * @since 2022-07-18
  */
 @Configuration
-public class BeanUtils {
+public class ShurjopayPluginConfig {
 
 	@Bean
 	public Shurjopay shurjoPayPlugin() {

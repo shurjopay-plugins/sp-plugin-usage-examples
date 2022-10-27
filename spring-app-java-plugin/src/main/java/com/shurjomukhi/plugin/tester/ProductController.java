@@ -38,8 +38,6 @@ public class ProductController {
 
 	@PostMapping("/buy-product")
 	public String buyProduct(@ModelAttribute("product") Product product, Model model) {
-		product.setProductName("Pen");
-		product.setProductPrice(1.0);
 		PaymentRes response = service.buy(product);
 		return "redirect:" + response.getPaymentUrl();
 	}
