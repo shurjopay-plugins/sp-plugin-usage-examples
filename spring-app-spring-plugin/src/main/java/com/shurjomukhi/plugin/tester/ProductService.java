@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
-import com.shurjopay.plugin.Shurjopay;
-import com.shurjopay.plugin.ShurjopayException;
-import com.shurjopay.plugin.constants.ShurjopayStatus;
-import com.shurjopay.plugin.model.PaymentReq;
-import com.shurjopay.plugin.model.PaymentRes;
-import com.shurjopay.plugin.model.VerifiedPayment;
-
+import bd.com.shurjopay.plugin.Shurjopay;
+import bd.com.shurjopay.plugin.ShurjopayException;
+import bd.com.shurjopay.plugin.constants.ShurjopayStatus;
+import bd.com.shurjopay.plugin.model.PaymentReq;
+import bd.com.shurjopay.plugin.model.PaymentRes;
+import bd.com.shurjopay.plugin.model.VerifiedPayment;
 import lombok.extern.slf4j.Slf4j;
 /**
  * 

@@ -3,7 +3,7 @@ package com.shurjomukhi.plugin.tester;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.shurjopay.plugin.Shurjopay;
+import bd.com.shurjopay.plugin.Shurjopay;
 /**
  * 
  * @author Al - Amin

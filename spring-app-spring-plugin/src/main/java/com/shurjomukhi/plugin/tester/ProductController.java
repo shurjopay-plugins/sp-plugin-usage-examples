@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.shurjopay.plugin.constants.ShurjopayStatus;
-import com.shurjopay.plugin.model.PaymentRes;
+import bd.com.shurjopay.plugin.constants.ShurjopayStatus;
+import bd.com.shurjopay.plugin.model.PaymentRes;
 /**
  * Root controller to manage product payment cycle
  * 
