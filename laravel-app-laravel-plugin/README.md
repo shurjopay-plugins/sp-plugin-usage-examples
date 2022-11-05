@@ -2,16 +2,14 @@
 # ShurjoPay
 
 # There are two-usages project baseed on Shurjopay Payment Plugin.
-``
-one) shurjopay_integ_updated_usage_project (new project using updated shurjopay)
-``
 
-``
-two) shurjopayv3_integ 
-``
-###### To run this laravel application in your device,just do the following tasks sequentially.
+i) ``shurjopay_integ_updated_usage_project`` (new project using updated shurjopay)
 
-###### Step1: Open the folder of "shurjopay_integ_updated_usage_project" / "shurjopayv3_integ" 
+ii) `` shurjopayv3_integ ``
+
+###### To run this laravel application in your device,just do the following tasks sequentially.At-first make sure your device has the proper environment set-up for running PHP / Laravel project.
+
+###### Step1: Open the folder of "shurjopay_integ_updated_usage_project" or "shurjopayv3_integ" 
 
 ###### Step2: Open terminal and give command,
 ``
@@ -40,5 +38,5 @@ composer update
 ###### Step4: Now application is ready to work. Just give another command in terminal
 
 ``
-php artisan serve
+  php artisan serve
 ``
