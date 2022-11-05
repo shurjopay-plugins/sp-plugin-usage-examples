@@ -2,13 +2,12 @@
 # ShurjoPay
 
 # There are two-usages project baseed on Shurjopay Payment Plugin.
+``
+one) shurjopay_integ_updated_usage_project (new project using updated shurjopay)
+``
 
-##### These are:-
 ``
-1) shurjopay_integ_updated_usage_project (new project using updated shurjopay)
-``
-``
-2)shurjopayv3_integ 
+two) shurjopayv3_integ 
 ``
 ###### To run this laravel application in your device,just do the following tasks sequentially.
 
