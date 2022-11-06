@@ -100,7 +100,11 @@
   </head>
   <body>
     <div class="main-block">
-      <h1>Make Payment to Shurjopay</h1>
+      <img
+        src="https://shurjopay.com.bd/dev/images/shurjoPay.png"
+        alt="Shurjopay"
+        style="width: 50%; margin-left: 25%"
+      />
       <form action="{% url 'make-sp-payment' %}" method="post">
         {% csrf_token %}
         <input
@@ -175,18 +179,10 @@
           required
         />
 
-        <input
-          type="text"
-          value="102.101.1.1"
-          name="client_ip"
-          placeholder="Client IP"
-          required
-        />
-
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
           <p class="link">
-            <a href="shurjopay/verify_sp_payment">Verify Payment?</a>
+            <a href="verify-sp-payment-form">Verify Payment?</a>
           </p>
           <p class="link">
             Powered by <a href="https://shurjopay.com.bd/">Shurjopay</a>

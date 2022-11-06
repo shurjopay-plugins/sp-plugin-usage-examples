@@ -17,7 +17,7 @@ def index(request):
 
 
 def verify_payment_view(request):
-    return render(request, 'shurjopay/index.html')
+    return render(request, 'shurjopay/verify.html')
 
 def make_payment(request):
     if request.method == 'POST':
@@ -31,10 +31,14 @@ def make_payment(request):
             customer_phone=request.POST['customer_phone'],
             customer_city=request.POST['customer_city'],
             customer_post_code=request.POST['customer_post_code'],
-            client_ip=request.POST['client_ip']
         )
         payment_details = shurjopay.make_payment(payment_request)
     return HttpResponseRedirect(payment_details.checkout_url)
 
+def verify_payment(request):
+    if request.method == 'POST':
+        verified_payment_details = shurjopay.verify_payment(request.POST['order_id'])
+        verified_payment_details = verified_payment_details.__dict__
+        return render(request, 'shurjopay/payment_details.html', {'payment_details': verified_payment_details})
 
 

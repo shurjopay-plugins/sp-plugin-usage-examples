@@ -101,21 +101,18 @@
   <body>
     <div class="main-block">
       <h1>Make Payment to Shurjopay</h1>
-      <form action="{% url 'verify_sp_paymnet' %}" method="post">
+      <form action="{% url 'verify-sp-payment' %}" method="post">
         {% csrf_token %}
         <input
           type="text"
-          value="102.101.1.1"
-          name="sp_order_id"
+          value="spay612b73a935ab1"
+          name="order_id"
           placeholder="Shurjopay Order ID"
           required
         />
-
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
-          <p class="link">
-            <a href="{% url 'make_sp_payment' %}">Verify Payment?</a>
-          </p>
+          <p class="link"><a href="/shurjopay">Make Payment?  </a></p>
           <p class="link">
             Powered by <a href="https://shurjopay.com.bd/">Shurjopay</a>
           </p>
