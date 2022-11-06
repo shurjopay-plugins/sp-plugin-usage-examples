@@ -16,7 +16,7 @@ ii) `` shurjopayv3_integ ``
 composer update
 ``
 
-###### Step3: Add the following Keys in .env file with the credentials provided from shurjoMukhi Limited
+###### Step3: Add the following Keys in ".env" file with the credentials provided from shurjoMukhi Limited. If there are no existing of ".env" and ".env.example" files then kindly add these files and then setup below configurations into your ".env" file.
 
 ``MERCHANT_USERNAME=""  
 ``
