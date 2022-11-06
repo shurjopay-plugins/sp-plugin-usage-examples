@@ -1,0 +1,45 @@
+{
+    "name": "shurjomukhi/shurjopay-laravel-plugin",
+    "description": "shurjopay is a online payment gateway and easy payment solution",
+    "keywords": ["shurjopay-payment-gateway", "shurjopay-laravel-package","shurjopay-laravel","laravel-shurjopay"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shurjomukhi Ltd",
+            "email": "plugindev@shurjomukhi.com.bd"
+        },
+        {
+            "name": "Mominur Rahman",
+            "email": "mominur@shurjomukhi.com.bd",
+            "role": "Software Engineer"
+        },
+        {
+            "name": "Rayhan Khan Ridoy",
+            "email": "redoy@shurjomukhisolutions.com.bd",
+            "role": "Software Engineer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+                "psr-4": {
+                    "Shurjomukhi\\ShurjopayLaravelPlugin\\": "src/"
+                }
+    },
+    "autoload-dev": {
+                "psr-4": {
+                "Shurjomukhi\\ShurjopayLaravelPlugin\\Tests\\": "tests"
+                }
+            },
+    "extra": {
+                "laravel": {
+                    "providers": [
+                        "Shurjomukhi\\ShurjopayLaravelPlugin\\ShurjopayServiceProvider"
+                    ]
+                }
+    },
+    "require-dev": {
+                "phpunit/phpunit": "9.5.x-dev"
+
+    }
+}
