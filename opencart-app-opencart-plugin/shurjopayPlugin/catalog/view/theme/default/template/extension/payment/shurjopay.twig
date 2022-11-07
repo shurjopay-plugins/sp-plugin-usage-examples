@@ -1,0 +1,25 @@
+<form action="{{ action }}" method="post">
+    <input type="hidden" name="pay_to_username" value="{{ pay_to_username }}" />
+    <input type="hidden" name="pay_to_password" value="{{ pay_to_password }}" />
+    <input type="hidden" name="uniq_transaction_key" value="{{ uniq_transaction_key }}" />
+    <input type="hidden" name="merchant_prefix" value="{{ merchant_prefix }}" />
+    <input type="hidden" name="currency" value="{{ currency }}" />
+    <input type="hidden" name="name" value="{{ name }}" />
+    <input type="hidden" name="address" value="{{ address }}" />
+    <input type="hidden" name="email" value="{{ email }}" />
+    <input type="hidden" name="phone" value="{{ phone }}" />
+    <input type="hidden" name="city" value="{{ city }}" />
+    <input type="hidden" name="state" value="{{ state }}" />
+    <input type="hidden" name="postcode" value="{{ postcode }}" />
+    <input type="hidden" name="country" value="{{ country }}" />
+    <input type="hidden" name="userIP" value="{{ userIP }}" />
+    <input type="hidden" name="paymentOption" value="{{ paymentOption }}" />
+    <input type="hidden" name="amount" value="{{ amount }}" />
+    <input type="hidden" name="returnUrl" value="{{ returnUrl }}" />
+    <input type="hidden" name="cancel_url" value="{{ cancel_url }}" />
+    <div class="buttons">
+        <div class="pull-right">
+            <input type="submit" value="{{ button_confirm }}" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
