@@ -202,20 +202,10 @@ class ControllerExtensionPaymentShurjopay extends Controller
 
 		// var_dump($createpaybody);exit;
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $this->payment_url);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $createpaybody);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		$response = curl_exec($ch);
-		if ($response === false) {
-			echo json_encode(curl_error($ch));
-		}
 
-		$urlData = json_decode($response);
-		curl_close($ch);
+        $response = $this->prepareCurlRequest($this->payment_url, 'POST', $createpaybody, $header);
+
+        $urlData = json_decode($response);
 		header('Location: ' . $urlData->checkout_url);
 	}
 	/**
