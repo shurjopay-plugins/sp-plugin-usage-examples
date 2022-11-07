@@ -15,7 +15,7 @@ $response_data = (object)array(
 if ($_REQUEST['order_id'])
 {
     $shurjopay_order_id = trim($_REQUEST['order_id']);
-    $response_data = json_decode(json_encode($sp_instance->verifyOrder($shurjopay_order_id)));
+    $response_data = json_decode(json_encode($sp_instance->verifyPayment($shurjopay_order_id)));
 }
 ?>
 <html>
