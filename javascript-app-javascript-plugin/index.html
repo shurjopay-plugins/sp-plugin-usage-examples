@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>ShurjoPay</title>
+  </head>
+  <body>
+    <form action="" id="form">
+      <img class="logo" src="./assets//logo.png" alt="" />
+      <div class="container-form-userName container-form-input">
+        <label for="amount"> Amount<span class="text-danger">*</span></label>
+        <input type="number" placeholder="Amount" name="amount" required />
+      </div>
+      <div class="container-form-userName container-form-input">
+        <label for="customer_name"
+          >Customer Name<span className="text-danger">*</span></label
+        >
+        <input
+          type="text"
+          placeholder="Customer Name"
+          name="customer_name"
+          required
+        />
+      </div>
+      <div class="container-form-userName container-form-input">
+        <label for="customer_phone">
+          Customer Phone No<span className="text-danger">*</span></label
+        >
+        <input
+          type="tel"
+          placeholder="Mobile Number"
+          name="customer_phone"
+          required
+        />
+      </div>
+      <div class="container-form-userName container-form-input">
+        <label for="customer_city"
+          >Customer City<span className="text-danger">*</span></label
+        >
+        <input type="text" placeholder="City" name="customer_city" required />
+      </div>
+      <div class="container-form-userName container-form-input">
+        <label for="customer_address">
+          Customer Address<span className="text-danger">*</span></label
+        >
+        <input
+          type="text"
+          placeholder="Address"
+          name="customer_address"
+          required
+        />
+      </div>
+      <div class="container-form-userName container-form-input">
+        <label for="customer_post_code">
+          Postal Code<span className="text-danger">*</span></label
+        >
+        <input
+          type="number"
+          placeholder="Zip"
+          name="customer_post_code"
+          required
+        />
+      </div>
+      <div class="container-form-userPassword container-form-input">
+        <label for="customer_email"
+          >Customer Email<span className="text-danger">*</span></label
+        >
+        <input type="text" placeholder="Email" name="customer_email" required />
+      </div>
+      <div class="container-form-userPassword container-form-input">
+        <label for="currency">
+          Currency<span className="text-danger">*</span></label
+        >
+        <select name="currency" required>
+          <option value="">Please Selcect One</option>
+          <option value="BDT">BDT</option>
+          <option value="USD">USD</option>
+        </select>
+      </div>
+
+      <button class="spButton js-form-btn" type="submit" id="payButton">
+        Pay Now
+      </button>
+    </form>
+
+    <script type="module" src="./ShurjoPay.js"></script>
+    <script type="module" src="./Execute.js"></script>
+  </body>
+</html>
