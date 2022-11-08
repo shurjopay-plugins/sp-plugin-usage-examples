@@ -9,12 +9,7 @@
 *
 */
 
-// TODO distribute using npm , bower, grunt ,cdn ,yarn 
-// TODO Data model need to be defined
-// TODO Add comments on class, method and important actions 
-// TODO remove use of global variables in plugin code
-// TODO shurjopay config injection refacorting needed. Work with CTO
-// TODO after this JS lib fully complete, write new code in TypeScript. with CTO
+
 import { setting } from "./setting.js";
 
 const url = setting.url;
@@ -190,7 +185,6 @@ async function verifyPayemt(token_type, token, sp_order_id) {
  * @throws ShurjopayVerificationException while order id is invalid or payment is not initiated properly or {#link HttpClient} exception
  */
 async function paymentStatus(token_type, token, sp_order_id) {
-  // TODO return early after if checks
   if (token && token_type && sp_order_id) {
     await fetch(`${url}/api/payment-status`, {
       method: "POST",
