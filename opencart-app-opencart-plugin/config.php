@@ -1,14 +1,14 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/shurjopayPlugin/');
+define('HTTP_SERVER', 'http://localhost/opencart3/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/shurjopayPlugin/');
+define('HTTPS_SERVER', 'http://localhost/opencart3/');
 
 // DIR
-define('DIR_APPLICATION', 'D:/xampp/htdocs/shurjopayPlugin/catalog/');
-define('DIR_SYSTEM', 'D:/xampp/htdocs/shurjopayPlugin/system/');
-define('DIR_IMAGE', 'D:/xampp/htdocs/shurjopayPlugin/image/');
+define('DIR_APPLICATION', 'C:/xampp/htdocs/opencart3/catalog/');
+define('DIR_SYSTEM', 'C:/xampp/htdocs/opencart3/system/');
+define('DIR_IMAGE', 'C:/xampp/htdocs/opencart3/image/');
 define('DIR_STORAGE', DIR_SYSTEM . 'storage/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
@@ -25,6 +25,6 @@ define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'shurjopayPlugin');
+define('DB_DATABASE', 'shurjopay_opencart');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');

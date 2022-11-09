@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * 
  * PHP version: 7.4.30
  * 
  * @title:	  Shurjopay Opencart Plugin
@@ -9,59 +10,74 @@
  * 
  * @author     Mohammed Shahadat Ali
  * @author     Rubel Ahmed
- * @datetime   26 October 2022
- * @copyright  Shurjomukhi Ltd.
+ * @copyright  Shurjopay Ltd.
  * @website	  www.shurjopay.com.bd
  * @platform   Opencart 3.0.3.8
  * @version	  shurjopay 2.0
-
-*/
+ * @since 2022-11-08
+ */
 
 //the configuration details are included here
-require_once 'config.php';
+require_once 'shurjopayConfig.php';
 
 class ControllerExtensionPaymentShurjopay extends Controller
 {
-    //sandbox testing url
+	//sandbox testing url
 	private $shurjopay_sandbox_api  = SHURJOPAY_SANDBOX_API;
     //shurjopay live url
 	private $shurjopay_live_api  = SHURJOPAY_LIVE_API;
 
-    //the API endpoints are defined here
-	private $token_url = TOKEN_URL;
-	private $payment_url = PAYMENT_URL;
-	private $verification_url = VERIFICATION_URL;
-
-    //This URL will be redirected after completing a payment
-	private $return_url = RESPONSE_URL;
-
-
-
+	/**
+	 * index
+	 *
+	 * @return void
+	 */
 	public function index()
 	{
-	$data = $this->postFields();
-
+		$data = $this->postFields();
 		return $this->load->view('extension/payment/shurjopay', $data);
 	}
+	
+	/**
+	 * getConfiguration
+	 * 
+	 * this function handles the API endpoints
+	 * 
+	 * @return void
+	 */
+	public function getConfiguration()
+	{
+		$baseUrl = $this->config->get('payment_shurjopay_merchant_sandbox') ? $this->shurjopay_sandbox_api : $this->shurjopay_live_api;
 
-
-	public function postFields(){
+		return (object) array(
+			'tokenUrl' => $baseUrl . 'api/get_token',
+			'paymentUrl' => $baseUrl . 'api/secret-pay',
+			'verificationUrl' => $baseUrl . 'api/verification'
+		);
+	}
+	
+	/**
+	 * postFields
+	 * this function fetches the admin panel form credentials
+	 * this function fetches all the order information which are required for the APIs
+	 * @return void
+	 */
+	public function postFields()
+	{
 		$this->load->model('checkout/order');
 
 		$this->load->language('extension/payment/shurjopay');
 
 		$data['button_confirm'] = $this->language->get('button_confirm');
 
-        //The generate_shurjo_pay function is redirected into a URL named action
+		//The generate_shurjopay_form function is redirected into action
 		$data['action'] = $this->url->link('extension/payment/shurjopay/generate_shurjopay_form');
-		
-        
-        //The callback function is redirected into returnUrl
+
+		//The callback function is redirected into returnUrl
 		$data['returnUrl'] = $this->url->link('extension/payment/shurjopay/callback', '', true);
-		// $data['cancel_url'] = $this->url->link('extension/payment/shurjopay/decrypt_and_validate', '', true)
-		
-        //data fetched from admin config of shurjopay plugin in shurjopay.twig file
-        $data['pay_to_username'] = $this->config->get('payment_shurjopay_merchant_username');
+
+		//data fetched from admin config of shurjopay plugin in shurjopay.twig file
+		$data['pay_to_username'] = $this->config->get('payment_shurjopay_merchant_username');
 		$data['pay_to_password'] = $this->config->get('payment_shurjopay_merchant_password');
 		$data['uniq_transaction_key'] = $this->config->get('payment_shurjopay_merchant_uniq_transaction_key') . uniqid();
 		$data['merchant_prefix'] = $this->config->get('payment_shurjopay_merchant_uniq_transaction_key');
@@ -87,81 +103,75 @@ class ControllerExtensionPaymentShurjopay extends Controller
 		$data['postcode'] = $order_info['payment_postcode'];
 		$data['country'] = $order_info['payment_country'];
 		$data['currency'] = $order_info['currency_code'];
-
-        //order id taken from session
+		
+		//order id taken from session
 		$data['order_id'] = $this->session->data['order_id'];
 		return $data;
 	}
 
 	/**
 	 * callback
-	 *
+	 * all the necessary data is required here to get a response from the Verification API
 	 * @return void
 	 */
 	public function callback()
 	{
-		$token   = json_decode(json_encode($this->authentication()), true);
-
-		$response = $this->verifyOrder($_REQUEST['order_id']);
 
 		$this->load->model('checkout/order');
+		$response = $this->verifyOrder($_REQUEST['order_id']);
+		$responseFormatted = json_decode($response);
+		// Cross check the order id
+		$order_id = $this->session->data['order_id'];
+		// update the transaction
+		// Create string for payment status
+		$orderHistoryData = "Transaction ID:<b>"
+			. $responseFormatted[0]->order_id
+			. "</b><br>Bank ID:<b>"
+			. $responseFormatted[0]->bank_trx_id
+			. "</b><br>Payment Status:<b>"
+			. $responseFormatted[0]->sp_message . "</b>"
+			. "</b><br>Payment Method:<b>"
+			. $responseFormatted[0]->method . "</b>";
 
-			
-			$data =$response;
+		switch ($responseFormatted[0]->sp_code) {
 
-			$sp_code = $data['sp_code'];
-			
-			$order_id = $this->session->data['order_id'];
+			case '1000':
+				$res = array('status' => true, 'msg' => $responseFormatted[0]->sp_message);
+				$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('payment_shurjopay_order_status_id'), $orderHistoryData, true);
+				break;
 
-			$orderHistoryData = "Transaction ID:<b>"
-				. $data['order_id']
-				. "</b><br>Bank ID:<b>"
-				. $data['bank_trx_id']
-				. "</b><br>Payment Method:<b>"
-				. $data['method'] . "</b>";
+			case '1001':
+				$res = array('status' => false, 'msg' => $responseFormatted[0]->sp_message);
+				$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('config_order_status_id'), $orderHistoryData, true);
+				break;
+			case '1002' || '1003' || '1004':
+				$res = array('status' => false, 'msg' => $responseFormatted[0]->sp_message);
+				$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('config_order_status_id'), $orderHistoryData, true);
+				break;
+		}
 
-			switch ($sp_code) {
-
-				case '000':
-					$res = array('status' => true, 'msg' => 'Your Transaction is Success');
-					$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('payment_shurjopay_order_status_id'), $orderHistoryData, true);
-					break;
-
-				case '001':
-					$res = array('status' => false, 'msg' => 'Your Transaction Failed');
-					$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('config_order_status_id'), $orderHistoryData, true);
-					break;
-			}
-
-			if ($res['status']) {
-				$this->session->data['success'] = $res['msg'];
-				header("location: " . $this->url->link('checkout/success'));
-				die();
-			} else {
-				$this->session->data['error'] = $res['msg'];
-				header("location: " . $this->url->link('checkout/checkout', '', true));
-				die();
-			}
-		// }
+		if ($responseFormatted[0]->sp_code == 1000) {
+			$this->session->data['success'] = $res['msg'];
+			header("location: " . $this->url->link('checkout/success'));
+		} else {
+			$this->session->data['error'] = $res['msg'];
+			header("location: " . $this->url->link('checkout/checkout', '', true));
+		}
 	}
 
 	/**
 	 * generate_shurjopay_form
-	 *
+	 * The token from authentication is then sent to this function
+	 * This function is used to create payload body.
+	 * This function will return payload data and redirect to the checkout API
 	 * @return string
 	 */
 	public function generate_shurjopay_form()
 	{
-
-		/**-Function-generate_shurjopay_form
-			This function is used to create payload body.
-			This prepareTransactionPayload function will return payload data.
-		*/
-		
-        //Generate token from authentication function
 		$token   = json_decode($this->authentication(), true);
+		$config = $this->getConfiguration();
 
-        //This is the request parameters for checkout
+		//payload
 		$createpaybody = json_encode(
 			array(
 				// store information
@@ -200,82 +210,72 @@ class ControllerExtensionPaymentShurjopay extends Controller
 			'Authorization: Bearer ' . $token['token']
 		);
 
-		// var_dump($createpaybody);exit;
+		//sending payload data, payment url and header to prepareCurlRequest function
+		$response = $this->prepareCurlRequest($config->paymentUrl, 'POST', $createpaybody, $header);
 
-
-        $response = $this->prepareCurlRequest($this->payment_url, 'POST', $createpaybody, $header);
-
-        $urlData = json_decode($response);
+		$urlData = json_decode($response);
 		header('Location: ' . $urlData->checkout_url);
 	}
 	/**
 	 * authentication
-	 *
+	 * This function is used to authenticate user and generate token.
+	 * the function connects with the Authentication API by providing username and password
+	 * the function then returns a response that contains a token and some other authentication details as well:
+		* Token,
+		* store_id,
+		* execute_url,
+		* token_type,
+		* sp_code,
+		* massage,
+		* TokenCreateTime,
+		* expires_in
 	 * @return string
 	 */
 	public function authentication()
 	{
-        /**
-         * This function is used to authenticate user and generate token.
-         * the function connects with the Authentication API by providing username and password
-         * the function then returns a response that contains a token and some other data as well:
-         * Token,
-         * store_id,
-         * execute_url,
-         * token_type,
-         * sp_code,
-         * massage,
-         * TokenCreateTime,
-         * expires_in
-        */
-		
-            //checking if sandbox testing is selected
-			if ($this->config->get('payment_shurjopay_merchant_sandbox')) {
-				$url = $this->shurjopay_sandbox_api;
-			} else {
-				$url = $this->shurjopay_live_api;
-			}
-			$data = $this->postFields();
-			$sp_user = $data['pay_to_username'];
-			$sp_pass = $data['pay_to_password'];
-            
-            //saving shurjopay credentials into an array
-			$credential = array(
-				'username' => trim($sp_user),
-				'password' => html_entity_decode($sp_pass),
-			);
-	
-			$header = array(
-				''
-			);
 
-            //checking if token url or credentials is found or not
-			if (empty($this->token_url) || empty($credential)) return null;
-			try {
-                //send all required data to prepareCurlRequest
-				$response = $this->prepareCurlRequest($this->token_url, 'POST', $credential, $header);
-				if ($response === false) {
-					throw new Exception('error');
-				}
-	
-				# Got object as response from prepareCurlRequest in $response variable
-				# and returning that object from here
-				return $response;
-	
-			} catch (Exception $e) {
-				return $e->getMessage();
+		//calling getConfiguration function to check if sandbox testing is selected
+		$config = $this->getConfiguration();
+
+		$data = $this->postFields();
+		$sp_user = $data['pay_to_username'];
+		$sp_pass = $data['pay_to_password'];
+
+		//saving shurjopay credentials into an array
+		$credential = array(
+			'username' => trim($sp_user),
+			'password' => html_entity_decode($sp_pass),
+		);
+		$header = array('');
+
+		//checking if token url or credentials is found or not
+		if (empty($config->tokenUrl) || empty($credential)) return null;
+		try {
+			//send all required data to prepareCurlRequest
+			$response = $this->prepareCurlRequest($config->tokenUrl, 'POST', $credential, $header);
+			if ($response === false) {
+				throw new Exception('error');
 			}
-		
+		} catch (Exception $e) {
+			return $e->getMessage();
+		} finally {
+			return $response;
+		}
 	}
 
-
+	
+	/**
+	 * prepareCurlRequest
+	 * This function is used to prepare curl body.
+	 * This prepareCurlRequest function will return curl response.
+	 * @param  mixed $url
+	 * @param  mixed $method
+	 * @param  mixed $payload_data
+	 * @param  mixed $header
+	 * @return void
+	 */
 	public function prepareCurlRequest($url, $method, $payload_data, $header)
 	{ 
-		/**-Function-prepareCurlRequest
-			This function is used to prepare curl body.
-			This prepareCurlRequest function will return curl response.
-		*/
-
 		try {
 			$curl = curl_init();
 
@@ -290,43 +290,50 @@ class ControllerExtensionPaymentShurjopay extends Controller
 				CURLOPT_MAXREDIRS => 10,
 				CURLOPT_TIMEOUT => 0,
 				CURLOPT_FOLLOWLOCATION => true,
+				#If HTTPS not working in local project
+				#Please Uncomment |CURLOPT_SSL_VERIFYPEER| 
+				#NOTE-Please Comment Again before going Live
+				//CURLOPT_SSL_VERIFYPEER => 0,
 			));
 		} catch (Exception $e) {
-			// logInfo("ShurjoPay has been failed for preparing Curl request !");
 			return $e->getMessage();
 		} finally {
 			$response = curl_exec($curl);
-			//print_r($response);exit();
 			curl_close($curl);
 
-			# here , returning object instead of Json to our core three method
 			return $response;
+			# here , returning object instead of Json to our core three method
 		}
-	}
+	}	
+	
+	/**
+	 * verifyOrder
+	 * This function connects with the Verification API by sending the order id as a request
+	 * This function then returns a response that contains the details of the order
+	 * @param  mixed $shurjopay_order_id
+	 * @return void
+	 */
 	public function verifyOrder($shurjopay_order_id)
 	{
-        /**
-         * This function connects with the Verification API by sending the order id as a request
-         * This function then returns a response that contains the details of the order
-        */
+
+		$config = $this->getConfiguration();
 
 		$token   = json_decode($this->authentication(), true);
-		// var_dump($token);exit;
-		$header=array(
-		    'Content-Type:application/json',
-		    'Authorization: Bearer '.$token['token']    
+		$header = array(
+			'Content-Type:application/json',
+			'Authorization: Bearer ' . $token['token']
 		);
-		$postOrderId = json_encode (
-		        array(
-		            'order_id' => $shurjopay_order_id
-		        )
+		$postOrderId = json_encode(
+			array(
+				'order_id' => $shurjopay_order_id
+			)
 		);
 		try {
-			$response = $this->prepareCurlRequest($this->verification_url,'POST',$postOrderId,$header);
-			return $response; 
-			      //object
+			$response = $this->prepareCurlRequest($config->verificationUrl, 'POST', $postOrderId, $header);
 		} catch (Exception $e) {
 			return $e->getMessage();
+		} finally {
+			return $response;
 		}
 	}
 }
