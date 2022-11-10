@@ -15,6 +15,8 @@
  * @platform   Opencart 3.0.3.8
  * @version	  shurjopay 2.0
  * @since 2022-11-08
+ * 
+ * TODO: commenting left for ipnHandler function
  */
 
 //the configuration details are included here
@@ -79,7 +81,7 @@ class ControllerExtensionPaymentShurjopay extends Controller
 		//data fetched from admin config of shurjopay plugin in shurjopay.twig file
 		$data['pay_to_username'] = $this->config->get('payment_shurjopay_merchant_username');
 		$data['pay_to_password'] = $this->config->get('payment_shurjopay_merchant_password');
-		$data['uniq_transaction_key'] = $this->config->get('payment_shurjopay_merchant_uniq_transaction_key') . uniqid();
+		$data['uniq_transaction_key'] = $this->config->get('payment_shurjopay_merchant_uniq_transaction_key'). '_' . $this->session->data['order_id'];
 		$data['merchant_prefix'] = $this->config->get('payment_shurjopay_merchant_uniq_transaction_key');
 		$data['userIP'] = $this->config->get('payment_shurjopay_merchant_userIP');
 		$data['paymentOption'] = $this->config->get('payment_shurjopay_merchant_paymentOption');
@@ -335,5 +337,44 @@ class ControllerExtensionPaymentShurjopay extends Controller
 		} finally {
 			return $response;
 		}
+	}
+
+	//Commenting left
+	public function ipnHandler()
+	{
+		if(empty($_REQUEST['order_id']))  { return false;} 
+		$response = $this->verifyOrder($_REQUEST['order_id']);
+		$responseFormatted = json_decode($response);
+		$order_id = $responseFormatted[0]->customer_order_id;
+		$op_order_id_with_prefix = explode("_",$order_id);
+		$op_order_id = $op_order_id_with_prefix[1];
+		
+		$orderHistoryData = "Transaction ID:<b>"
+			. $order_id
+			. "</b><br>Bank ID:<b>"
+			. $responseFormatted[0]->bank_trx_id
+			. "</b><br>Payment Status:<b>"
+			. $responseFormatted[0]->sp_message . "</b>"
+			. "</b><br>Payment Method:<b>"
+			. $responseFormatted[0]->method . "</b>";
+
+		switch ($responseFormatted[0]->sp_code) {
+
+			case '1000':
+				$res = array('status' => true, 'msg' => $responseFormatted[0]->sp_message);
+				$this->model_checkout_order->addOrderHistory($op_order_id, $this->config->get('payment_shurjopay_order_status_id'), $orderHistoryData, true);
+				break;
+			case '1001':
+				$res = array('status' => false, 'msg' => $responseFormatted[0]->sp_message);
+				$this->model_checkout_order->addOrderHistory($op_order_id, $this->config->get('config_order_status_id'), $orderHistoryData, true);
+				break;
+			case '1002' || '1003' || '1004':
+				$res = array('status' => false, 'msg' => $responseFormatted[0]->sp_message);
+				$this->model_checkout_order->addOrderHistory($op_order_id, $this->config->get('config_order_status_id'), $orderHistoryData, true);
+				break;
+		}
+
+		return false;
+
 	}
 }
