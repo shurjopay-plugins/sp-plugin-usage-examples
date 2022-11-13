@@ -16,7 +16,7 @@
  * @version	  shurjopay 2.0
  * @since 2022-11-08
  * 
- * TODO: commenting left for ipnHandler function
+ * 
  */
 
 //the configuration details are included here
@@ -339,16 +339,31 @@ class ControllerExtensionPaymentShurjopay extends Controller
 		}
 	}
 
-	//Commenting left
+		
+	/**
+	 * ipnHandler
+	 * This function deals with the Instant Payment Notification (IPN) URL of the merchant's website where shurjoPay will send the transaction's status.
+	 * The data will be communicated as shurjoPay Server to merchant's Server. Some transactions could be pending or a customer lost his/her session, in such cases back-end IPN plays a very important role to update merchant's backend office.
+	 * In this function, there are two steps. First it gets the order id from shurjopay webhook. Then it verifies the order id and gets the payment details.
+	 * 
+	 * @return void
+	 */
 	public function ipnHandler()
 	{
+		//checking if there is a valid order id
 		if(empty($_REQUEST['order_id']))  { return false;} 
+
+		//verify function is called with parameter
 		$response = $this->verifyOrder($_REQUEST['order_id']);
 		$responseFormatted = json_decode($response);
+
+		//the customer id is then received from shurjopay as order id
 		$order_id = $responseFormatted[0]->customer_order_id;
 		$op_order_id_with_prefix = explode("_",$order_id);
 		$op_order_id = $op_order_id_with_prefix[1];
 		
+		// update the transaction
+		// Create string for payment status
 		$orderHistoryData = "Transaction ID:<b>"
 			. $order_id
 			. "</b><br>Bank ID:<b>"
