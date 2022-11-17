@@ -101,7 +101,7 @@
   <body>
     <div class="main-block">
       <h1>Make Payment to Shurjopay</h1>
-      <form action="{% url 'verify-sp-payment' %}" method="post">
+      <form action="{% url 'check-sp-payment' %}" method="post">
         {% csrf_token %}
         <input
           type="text"
@@ -112,7 +112,7 @@
         />
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
-          <p class="link"><a href="/shurjopay">Make Payment?  </a></p>
+          <p class="link"><a href="/shurjopay">Make Payment? </a></p>
           <p class="link">
             Powered by <a href="https://shurjopay.com.bd/">Shurjopay</a>
           </p>
