@@ -1,3 +1,4 @@
+![shurjopay logo](https://user-images.githubusercontent.com/68351215/203033818-e457ec28-200c-4610-912e-00f0c50842ea.png)
 
 # What is this repository for?
 
@@ -69,11 +70,19 @@ Opencart version: 3.x.x
 ![add_seourl_callback](https://user-images.githubusercontent.com/68351215/203032322-3e283db8-260d-4d78-87cb-2e81e7ca8f53.png)
 
     
-    * create new SEO url with 
+* create new SEO url with 
     ``QUERY = extension/payment/shurjopay/ipnHandler`` \
     ``KEYWORD = ipn-listner``
     
     ![add_ipn_url](https://user-images.githubusercontent.com/68351215/203032360-96dc7fa7-0d5c-4112-af2f-7461f28397c4.png)
 
 
-* Rewrite .htaccess and set root folder name of the project with “RewriteBase”
+* Rewrite .htaccess and set root folder name of the project 
+
+![htaccess edit](https://user-images.githubusercontent.com/68351215/203035990-1e353e3c-4308-48fc-a108-0598b30d5680.png)
+* *if the project in cpanel is in the root directory (no dedicated folder), no need to change the .htaccess*
+
+
+
+# Who do I talk to? ###
+For any assistence please query in shurjopay.com.bd contact.
