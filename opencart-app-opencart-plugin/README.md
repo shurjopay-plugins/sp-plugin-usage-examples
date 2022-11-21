@@ -12,11 +12,11 @@ Opencart version: 3.x.x
     *(standard installation process)*
 
 ## Step 2
-* Download all contents from the **upload** folder in the github repo.
+* Download the plugin contents from the github repo as zip and extract them.
 
-* Zip the folders **admin** and **catalog** together with a name extension: **“shurjopay.ocmod.zip”**
+* Then zip the **upload**  folder with a name extension: **“shurjopay.ocmod.zip”**
 
-* Log in to the Admin panel, go to ->Extensions ->Installer, then **upload** the .ocmod.zip file.
+* Log in to the Admin panel, go to Extensions ->Installer, then **upload** the .ocmod.zip file.
 
 ![upload_plugin](https://user-images.githubusercontent.com/68351215/203031591-1c225180-d1db-4f9f-8000-75ec92915168.png)
 
@@ -70,11 +70,11 @@ Opencart version: 3.x.x
 ![add_seourl_callback](https://user-images.githubusercontent.com/68351215/203032322-3e283db8-260d-4d78-87cb-2e81e7ca8f53.png)
 
     
-* create new SEO url with 
+   * create new SEO url with 
     ``QUERY = extension/payment/shurjopay/ipnHandler`` \
     ``KEYWORD = ipn-listner``
     
-    ![add_ipn_url](https://user-images.githubusercontent.com/68351215/203032360-96dc7fa7-0d5c-4112-af2f-7461f28397c4.png)
+![add_ipn_url](https://user-images.githubusercontent.com/68351215/203032360-96dc7fa7-0d5c-4112-af2f-7461f28397c4.png)
 
 
 * Rewrite .htaccess and set root folder name of the project 
@@ -84,5 +84,5 @@ Opencart version: 3.x.x
 
 
 
-# Who do I talk to? ###
+# Who do I talk to?
 For any assistence please query in shurjopay.com.bd contact.
