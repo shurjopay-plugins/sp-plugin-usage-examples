@@ -1,8 +1,4 @@
-<br />
-<br />
-<p align="center" style="height:100px;">
-   ![shurjopay logo](https://user-images.githubusercontent.com/68351215/203033818-e457ec28-200c-4610-912e-00f0c50842ea.png)
-</p>
+![shurjopay logo](https://user-images.githubusercontent.com/68351215/203033818-e457ec28-200c-4610-912e-00f0c50842ea.png)
 
 
 # Installation and Configuration:
