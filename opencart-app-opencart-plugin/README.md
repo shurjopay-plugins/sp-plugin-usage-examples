@@ -1,17 +1,17 @@
-![shurjopay logo](https://user-images.githubusercontent.com/68351215/203033818-e457ec28-200c-4610-912e-00f0c50842ea.png)
+<br />
+<br />
+<p align="center" style="height:100px;">
+   ![shurjopay logo](https://user-images.githubusercontent.com/68351215/203033818-e457ec28-200c-4610-912e-00f0c50842ea.png)
+</p>
 
-# What is this repository for?
-
-ShurjoPay opencart plugin. Seamlessly pay your bill through shurjoPay in opencart.
-Opencart version: 3.x.x
 
 # Installation and Configuration:
 
-## Step 1
+### Step 1
 * Install **opencart 3.0.3.8**
     *(standard installation process)*
 
-## Step 2
+### Step 2
 * Download the plugin contents from the github repo as zip and extract them.
 
 * Then zip the **upload**  folder with a name extension: **“shurjopay.ocmod.zip”**
@@ -42,7 +42,7 @@ Opencart version: 3.x.x
     
 ![shurjopay_credentials](https://user-images.githubusercontent.com/68351215/203031903-186ce07f-7d25-47c5-828b-8e1f09dd3d70.png)
 
-## Step 3
+### Step 3
 
 * Download and install additional dependency extension **SEO URL issue fix in Opencart 3.x By Sainent** *(version 3.x(1.2))* from the opencart extension :
     [SEO URL issue fix in Opencart 3.x By Sainent](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=31993&filter_member=sainent)
