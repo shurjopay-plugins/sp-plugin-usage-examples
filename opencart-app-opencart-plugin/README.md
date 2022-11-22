@@ -67,8 +67,10 @@
 
     
    * create new SEO url with 
-    ``QUERY = extension/payment/shurjopay/ipnHandler`` \
-    ``KEYWORD = ipn-listner``
+   * QUERY
+    ``` extension/payment/shurjopay/ipnHandler``` 
+   * KEYWORD
+    ```ipn-listner```
     
 ![add_ipn_url](https://user-images.githubusercontent.com/68351215/203032360-96dc7fa7-0d5c-4112-af2f-7461f28397c4.png)
 
