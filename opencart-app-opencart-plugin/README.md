@@ -1,13 +1,13 @@
 ![shurjopay logo](https://user-images.githubusercontent.com/68351215/203033818-e457ec28-200c-4610-912e-00f0c50842ea.png)
 
 
-# Installation and Configuration:
+# ⚙️Installation and Configuration:
 
-### Step 1
+### ➡ Step 1
 * Install **opencart 3.0.3.8**
     *(standard installation process)*
 
-### Step 2
+### ➡ Step 2
 * Download the plugin contents from the github repo as zip and extract them.
 
 * Then zip the **upload**  folder with a name extension: **“shurjopay.ocmod.zip”**
@@ -38,7 +38,7 @@
     
 ![shurjopay_credentials](https://user-images.githubusercontent.com/68351215/203031903-186ce07f-7d25-47c5-828b-8e1f09dd3d70.png)
 
-### Step 3
+### ➡ Step 3
 
 * Download and install additional dependency extension **SEO URL issue fix in Opencart 3.x By Sainent** *(version 3.x(1.2))* from the opencart extension :
     [SEO URL issue fix in Opencart 3.x By Sainent](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=31993&filter_member=sainent)
@@ -81,7 +81,7 @@
 * *if the project in cpanel is in the root directory (no dedicated folder), no need to change the .htaccess*
 
 
-**NOTE:** If the merchant has a custom theme with one-page checkout, then the payment method should be selected as "ShurjoPay" from Admin Panel.
+⚠️ **NOTE:** If the merchant has a custom theme with one-page checkout, then the payment method should be selected as "ShurjoPay" from Admin Panel.
 
 
 ### 🔧 Supported Versions
@@ -91,5 +91,6 @@
 
 
 
-# Who do I talk to?
+## 📞 Who do I talk to?
 For any assistance please query in shurjopay.com.bd contact.
+
