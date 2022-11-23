@@ -81,6 +81,15 @@
 * *if the project in cpanel is in the root directory (no dedicated folder), no need to change the .htaccess*
 
 
+**NOTE:** If the merchant has a custom theme with one-page checkout, then the payment method should be selected as "ShurjoPay" from Admin Panel.
+
+
+### 🔧 Supported Versions
+| Plugin Version | Opencart Version | Php Version |
+|----|----|----|
+| 2.0 | 3.0.3.8 | 7.4 |
+
+
 
 # Who do I talk to?
-For any assistence please query in shurjopay.com.bd contact.
+For any assistance please query in shurjopay.com.bd contact.
