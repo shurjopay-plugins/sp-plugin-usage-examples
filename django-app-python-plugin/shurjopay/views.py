@@ -2,17 +2,18 @@ from django.conf import settings
 from .models import OrderHistory
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from shurjopay_plugin.shurjopay_plugin import ShurjoPayPlugin
-from shurjopay_plugin.models import PaymentRequestModel,ShurjoPayConfigModel
-from shurjopay_plugin.shurjopay_status_codes import *
+from shurjopay_plugin.models import *
+from shurjopay_plugin.shurjopay_plugin import *
 
 sp_config = ShurjoPayConfigModel(
         SP_USERNAME = settings.SP_USERNAME,
         SP_PASSWORD = settings.SP_PASSWORD,
         SHURJOPAY_API = settings.SHURJOPAY_API,
-        SP_CALLBACK = settings.SP_CALLBACK)
+        SP_CALLBACK = settings.SP_CALLBACK,
+        SP_LOG_DIR = settings.SP_LOG_DIR
+        )
 
-shurjopay = ShurjoPayPlugin(sp_config) 
+shurjopay = ShurjopayPlugin(sp_config) 
     
 def index(request):
     return render(request, 'shurjopay/index.html')
