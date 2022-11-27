@@ -3,7 +3,7 @@ from .models import OrderHistory
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from shurjopay_plugin.models import *
-from shurjopay_plugin.shurjopay_plugin import *
+from shurjopay_plugin.shurjopay_plugin import ShurjopayPlugin
 
 sp_config = ShurjoPayConfigModel(
         SP_USERNAME = settings.SP_USERNAME,
@@ -53,20 +53,27 @@ def sp_cancel(request):
         return HttpResponseRedirect('/')
 
 def ipn(request):
-    if request.method == 'GET':
-        verified_payment_details = shurjopay.check_payment_status(request.GET['order_id'])
-        if verified_payment_details.sp_code == SHURJOPAY_STATUS_CODES['SHURJOPAY_SUCCESS']:
-            OrderHistory.objects.create(  
-                prefix = verified_payment_details.prefix,
-                amount = verified_payment_details.amount,
-                order_id = verified_payment_details.order_id,
-                currency = verified_payment_details.currency,
-                customer_name = verified_payment_details.customer_name,
-                customer_address = verified_payment_details.customer_address,
-                customer_phone = verified_payment_details.customer_phone,
-                customer_city = verified_payment_details.customer_city,
-                customer_post_code = verified_payment_details.customer_post_code,
-            )
-            return render(request, 'shurjopay/payment_details.html', {'payment_details': verified_payment_details.__dict__})
+    if request.method == 'POST':
+        response = shurjopay.verify_payment(request.POST['order_id'])
+        if(type(response) == VerifiedPaymentDetailsModel):
+            if response:
+                OrderHistory.objects.create(  
+                    amount = response.amount,
+                    order_id = response.order_id,
+                    transaction_method = response.method,   
+                    currency = response.currency,
+                    customer_order_id = response.customer_order_id,
+                    customer_name = response.name,
+                    customer_address = response.address,
+                    customer_phone = response.phone_no,
+                    customer_city = response.city,
+                    card_number = response.card_number, 
+                    card_holder_name = response.card_holder_name,
+                    invoice_no = response.invoice_no,
+                   
+                )
+                return render(request, 'shurjopay/payment_details.html', {'payment_details': response.__dict__})
         else:
-            return HttpResponse(get_status_by_code(verified_payment_details.sp_code))
+            return HttpResponse({
+                f'sp code: {response.sp_code}, sp message: {response.message}'
+            })
