@@ -41,6 +41,8 @@ Developers have to configure .env file in their respective project with five var
 
 - **Shurjopay Configurations**
 
+> 📝 **NOTE** For shurjoPay version 3 integration all necessary credential will be given to merchant after subscription completed on shurjoPay gateway.
+
 ```env
 SP_USERNAME=sp_sandbox
 SP_PASSWORD=pyyk97hu&6u6
