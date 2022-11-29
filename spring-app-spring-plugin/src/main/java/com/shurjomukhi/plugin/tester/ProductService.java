@@ -30,7 +30,6 @@ public class ProductService {
 		if (log.isDebugEnabled()) log.debug("Product details: {}", product);
 		
 		PaymentReq request = new PaymentReq();
-
 		request.setPrefix("sp");
 		request.setAmount(product.getPrice());
 		request.setOrderId("sp315689");
