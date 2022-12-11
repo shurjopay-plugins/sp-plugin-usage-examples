@@ -76,10 +76,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <span>discsount_amount </span>
+                                <span>discount_amount </span>
                             </td>
                             <td>
-                                :<input type="text" name="discsount_amount" value="{{old('discsount_amount')}}" placeholder="Enter discsount_amount">
+                                :<input type="text" name="discount_amount" value="{{old('discount_amount')}}" placeholder="Enter discount_amount">
                             </td>
 
                         </tr>

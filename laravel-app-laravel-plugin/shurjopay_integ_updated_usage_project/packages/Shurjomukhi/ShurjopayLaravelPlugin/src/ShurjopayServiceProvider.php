@@ -4,6 +4,20 @@ namespace Shurjomukhi\ShurjopayLaravelPlugin;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * This is Shurjopay Service-Provider.It has two core methods named as register() & boot()
+ * like other general service-provider.
+ *
+ * Inside register() method:-
+ *      * Shurjopay controller is registered.
+ *      * Merged package's custom config with applicatin config's directory.
+ * Inside boot() method:-
+ *      * Package's custom configuration is published.
+ *
+ * @author Rayhan Khan Ridoy
+ * @since 2022-12-01
+*/
+
 class ShurjopayServiceProvider extends ServiceProvider
 {
     /**
@@ -15,7 +29,7 @@ class ShurjopayServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/views','shurjopay');
         $this->app->make('Shurjomukhi\ShurjopayLaravelPlugin\Http\Controllers\Shurjopay');
-        $this->mergeConfigFrom(__DIR__.'/../config/shurjopay.php', 'Shurjopay');  //'Shurjopay' is a key for accessing value as config('Shurjopay.merchant_return_url') in controller
+        $this->mergeConfigFrom(__DIR__.'/../config/shurjopayConfig.php', 'Shurjopay');  //'Shurjopay' is a key for accessing value as config('Shurjopay.merchant_return_url') in controller
     }
 
     /**
@@ -35,8 +49,8 @@ class ShurjopayServiceProvider extends ServiceProvider
             [
                 # Publishing package config/shurjopay.php to application config/Shurjopay.php
 
-              __DIR__.'/../config/shurjopay.php' => config_path('Shurjopay.php'),
-            ], 'shurjopay');
+              __DIR__.'/../config/shurjopayConfig.php' => config_path('ShurjopayConfig.php'),
+            ],'shurjopay');
         }
     }
 
