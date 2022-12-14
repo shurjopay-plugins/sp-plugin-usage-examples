@@ -10,8 +10,15 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "shurjomukhi/shurjopay-laravel-plugin":"dev-feature/laravel"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/shurjopay-plugins/sp-plugin-laravel.git"
+        }
+    ],
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",

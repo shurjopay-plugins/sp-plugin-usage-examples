@@ -3,6 +3,9 @@
 /public/storage
 /storage/*.key
 /vendor
+.editorconfig
+.gitattributes
+.styleci.yml
 .env
 .env.backup
 .phpunit.result.cache
