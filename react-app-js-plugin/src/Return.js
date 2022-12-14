@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { authentication, verifyPayment } from "./Shurjopay.js";
+import { verifyPayment } from "./Shurjopay.js";
 
 const Return = () => {
   const [details, setDetails] = useState({});
@@ -9,19 +9,15 @@ const Return = () => {
     const url_string = window.location.href.toLowerCase();
     const url = new URL(url_string);
     const order_id = url.searchParams.get("order_id");
-    //getting token for verifyPayment
-    authentication().then(function (token_details) {
-      const { token, token_type } = token_details;
+    
+     
       //payment verification and handle promise data 
-      //parameter token_type, token, order_id to call verifyPayment function
-      verifyPayment(token_type, token, order_id).then(async function (
-        verify_status
-      ) {
+      //parameter order_id to call verifyPayment function
+      const verify_status= await verifyPayment(order_id);
+   
         for (const values of verify_status) {
           setDetails(values);
         }
-      });
-    });
   }
   window.onload = () => status();
   return (

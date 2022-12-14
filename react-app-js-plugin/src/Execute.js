@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { authentication, makePayment } from "./Shurjopay.js";
+import { makePayment } from "./Shurjopay.js";
 const Execute = () => {
   const [inputs, setInputs] = useState({});
-  const [ip, setIp] = useState(" ");
+  const [loading, setLoading] = useState(false)
 
   const order_id = "sp315689";
 
-  //getting ip from user machine
-  fetch("https://checkip.amazonaws.com/")
-    .then((res) => res.text())
-    .then((ip) => setIp(ip));
+
 
   //getting data from userForm
   const handleChange = (event) => {
@@ -19,26 +16,22 @@ const Execute = () => {
   };
 
   //payment function
-  const payNow = () => {
-    //handle promise to get authentication data
-    authentication().then(function (token_details) {
-      const { token, token_type, store_id } = token_details;
-       
-       //provide token_type, token, store_id, order_id, form data, ip as parameter
-       //handle promise to get checkout Url
-      makePayment(token_type, token, store_id, order_id, inputs, ip).then(
-        async function (makePayment_details) {
+  async function payNow(){
+    setLoading(true);
+        const makePayment_details= await makePayment(order_id, inputs);
           const { checkout_url } = makePayment_details;
           if (checkout_url) {
+           
             window.location.href = checkout_url;
           } else {
-            alert("Please Input Valid Information");
+            setLoading(false);
+            alert("Something Wrong on Your Payment");
+           
           }
         }
-      );
-    });
-  };
   return (
+    <div>
+    
     <div>
       <form onChange={handleChange} id="form">
         <div align="center" className="divlogo">
@@ -133,7 +126,11 @@ const Execute = () => {
           className="spButton  js-form-btn"
           onClick={() => payNow()}
           id="payButton"
-        >
+        >{loading ? (
+          <div className="loader-container">
+            <div className="loader"></div>
+          </div>
+        ) : ""}
           Pay Now
         </button>
         {/* <button
@@ -142,6 +139,8 @@ const Execute = () => {
        Default
       </button> */}
       </div>
+    </div>
+   
     </div>
   );
 };
