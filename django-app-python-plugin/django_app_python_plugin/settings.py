@@ -23,9 +23,9 @@ env = environ.Env()
 environ.Env.read_env(BASE_DIR / '.env')
 SP_USERNAME=env('SP_USERNAME')
 SP_PASSWORD=env('SP_PASSWORD')
-SHURJOPAY_API=env('SHURJOPAY_API')
+SP_ENDPOINT=env('SP_ENDPOINT')
 SP_CALLBACK=env('SP_CALLBACK')
-SP_LOG_DIR= BASE_DIR / 'logs' / 'shurjopay.log'
+SP_LOGDIR= BASE_DIR / 'logs' / 'shurjopay.log'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
