@@ -2,8 +2,9 @@ from django.conf import settings
 from .models import OrderHistory
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from shurjopay_plugin.models import *
-from shurjopay_plugin.shurjopay_plugin import ShurjopayPlugin
+from shurjopay_plugin import ShurjopayPlugin
+from shurjopay_plugin import ShurjoPayConfigModel, PaymentRequestModel, VerifiedPaymentDetailsModel
+
 
 sp_config = ShurjoPayConfigModel(
         SP_USERNAME = settings.SP_USERNAME,
