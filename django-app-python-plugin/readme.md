@@ -47,7 +47,7 @@ Developers have to configure .env file in their respective project with five var
 SP_USERNAME=sp_sandbox
 SP_PASSWORD=pyyk97hu&6u6
 SHURJOPAY_API=https://sandbox.shurjopayment.com/api/
-SP_CALLBACK=https://sandbox.shurjopayment.com/response/
+SP_CALLBACK=https://www.sandbox.shurjopayment.com/response
 SP_LOG_DIR=log/shurjopay/shurjopay.log
 ```
 
@@ -55,8 +55,7 @@ Load the environment variables using django-environ in `settings.py` file
 
 > 📝 **NOTE** Install `django-environ` if not installed
 
-This Project is intended to set up shurjoPay locally, Hence we are ommeting SP_LOG_DIR from .env
-and providing shurjoPay log location in the Project's base directory
+This Project is intended to set up shurjoPay locally, Hence we are ommeting SP_LOGDIR from .env
 
 ```
 import environ
@@ -69,9 +68,9 @@ env = environ.Env()
 environ.Env.read_env(BASE_DIR / '.env')
 SP_USERNAME=env('SP_USERNAME')
 SP_PASSWORD=env('SP_PASSWORD')
-SHURJOPAY_API=env('SHURJOPAY_API')
+SP_ENDPOINT=env('SP_ENDPOINT')
 SP_CALLBACK=env('SP_CALLBACK')
-SP_LOG_DIR= BASE_DIR / 'logs' / 'shurjopay.log'
+SP_LOGDIR= BASE_DIR / 'logs' / 'shurjopay.log'
 
 ```
 
