@@ -1,7 +1,7 @@
 from django.conf import settings
 from .models import OrderHistory
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from shurjopay_plugin import ShurjopayPlugin
 from shurjopay_plugin import ShurjoPayConfigModel, PaymentRequestModel, VerifiedPaymentDetailsModel
 
@@ -9,9 +9,9 @@ from shurjopay_plugin import ShurjoPayConfigModel, PaymentRequestModel, Verified
 sp_config = ShurjoPayConfigModel(
         SP_USERNAME = settings.SP_USERNAME,
         SP_PASSWORD = settings.SP_PASSWORD,
-        SHURJOPAY_API = settings.SHURJOPAY_API,
+        SP_ENDPOINT = settings.SP_ENDPOINT,
         SP_CALLBACK = settings.SP_CALLBACK,
-        SP_LOG_DIR = settings.SP_LOG_DIR
+        SP_LOGDIR = settings.SP_LOGDIR
         )
 
 shurjopay = ShurjopayPlugin(sp_config) 
@@ -56,25 +56,20 @@ def sp_cancel(request):
 def ipn(request):
     if request.method == 'POST':
         response = shurjopay.verify_payment(request.POST['order_id'])
-        if(type(response) == VerifiedPaymentDetailsModel):
-            if response:
-                OrderHistory.objects.create(  
-                    amount = response.amount,
-                    order_id = response.order_id,
-                    transaction_method = response.method,   
-                    currency = response.currency,
-                    customer_order_id = response.customer_order_id,
-                    customer_name = response.name,
-                    customer_address = response.address,
-                    customer_phone = response.phone_no,
-                    customer_city = response.city,
-                    card_number = response.card_number, 
-                    card_holder_name = response.card_holder_name,
-                    invoice_no = response.invoice_no,
-                   
-                )
-                return render(request, 'shurjopay/payment_details.html', {'payment_details': response.__dict__})
-        else:
-            return HttpResponse({
-                f'sp code: {response.sp_code}, sp message: {response.message}'
-            })
+        if response:
+            OrderHistory.objects.create(  
+                amount = response.amount,
+                order_id = response.order_id,
+                transaction_method = response.method,   
+                currency = response.currency,
+                customer_order_id = response.customer_order_id,
+                customer_name = response.name,
+                customer_address = response.address,
+                customer_phone = response.phone_no,
+                customer_city = response.city,
+                card_number = response.card_number, 
+                card_holder_name = response.card_holder_name,
+                invoice_no = response.invoice_no,
+                
+            )
+            return render(request, 'shurjopay/payment_details.html', {'payment_details': response.__dict__})
