@@ -136,6 +136,8 @@ return [
 
     'providers' => [
 
+        Shurjomukhi\ShurjopayLaravelPlugin\ShurjopayServiceProvider::class,
+
         /*
          * Laravel Framework Service Providers...
          */

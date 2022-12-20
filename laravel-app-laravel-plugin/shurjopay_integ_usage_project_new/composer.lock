@@ -2878,12 +2878,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/shurjopay-plugins/sp-plugin-laravel.git",
-                "reference": "07d19977ffbf44b75c668e150ed52c72e63344cb"
+                "reference": "9be26f1bb4cffc364aefc72791640dd435bc8523"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-laravel/zipball/07d19977ffbf44b75c668e150ed52c72e63344cb",
-                "reference": "07d19977ffbf44b75c668e150ed52c72e63344cb",
+                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-laravel/zipball/9be26f1bb4cffc364aefc72791640dd435bc8523",
+                "reference": "9be26f1bb4cffc364aefc72791640dd435bc8523",
                 "shasum": ""
             },
             "require-dev": {
@@ -2937,7 +2937,7 @@
                 "source": "https://github.com/shurjopay-plugins/sp-plugin-laravel/tree/feature/laravel",
                 "issues": "https://github.com/shurjopay-plugins/sp-plugin-laravel/issues"
             },
-            "time": "2022-12-15T06:24:21+00:00"
+            "time": "2022-12-20T07:16:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5948,16 +5948,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.16.4",
+            "version": "v1.16.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "72412b14d6f4e73b71b5f3068bdb064184fbb001"
+                "reference": "9ec5338d13bdc941a23347cb36385988c525fe02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/72412b14d6f4e73b71b5f3068bdb064184fbb001",
-                "reference": "72412b14d6f4e73b71b5f3068bdb064184fbb001",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/9ec5338d13bdc941a23347cb36385988c525fe02",
+                "reference": "9ec5338d13bdc941a23347cb36385988c525fe02",
                 "shasum": ""
             },
             "require": {
@@ -6004,7 +6004,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-12-12T16:47:37+00:00"
+            "time": "2022-12-14T14:54:21+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -6337,16 +6337,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.21",
+            "version": "9.2.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "3f893e19712bb0c8bc86665d1562e9fd509c4ef0"
+                "reference": "e4bf60d2220b4baaa0572986b5d69870226b06df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/3f893e19712bb0c8bc86665d1562e9fd509c4ef0",
-                "reference": "3f893e19712bb0c8bc86665d1562e9fd509c4ef0",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/e4bf60d2220b4baaa0572986b5d69870226b06df",
+                "reference": "e4bf60d2220b4baaa0572986b5d69870226b06df",
                 "shasum": ""
             },
             "require": {
@@ -6402,7 +6402,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.21"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.22"
             },
             "funding": [
                 {
@@ -6410,7 +6410,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-14T13:26:54+00:00"
+            "time": "2022-12-18T16:40:55+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
