@@ -32,7 +32,7 @@ public class ProductService {
 		PaymentReq request = new PaymentReq();
 		request.setPrefix("sp");
 		request.setAmount(product.getPrice());
-		request.setOrderId("sp315689");
+		request.setCustomerOrderId("sp315689");
 		request.setCurrency("BDT");
 		request.setCustomerName("Maharab kibria");
 		request.setCustomerAddress("Dhaka");
