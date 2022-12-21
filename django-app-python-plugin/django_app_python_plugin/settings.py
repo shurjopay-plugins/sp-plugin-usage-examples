@@ -16,8 +16,6 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
 # Shurjopay Credentials
 env = environ.Env()
 environ.Env.read_env(BASE_DIR / '.env')
@@ -36,7 +34,7 @@ SECRET_KEY = "django-insecure-hdoocrx(@2x)wc%6^5@p9_31r#g$)$fsx4o#t$884)$m=99rmi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
