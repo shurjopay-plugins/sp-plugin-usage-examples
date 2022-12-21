@@ -37,6 +37,7 @@ SP_USERNAME=sp_sandbox
 SP_PASSWORD=pyyk97hu&6u6
 SHURJOPAY_API=https://sandbox.shurjopayment.com/api/
 SP_CALLBACK=https://www.sandbox.shurjopayment.com/response
+SP_LOGDIR=log/shurjopay/shurjopay.log
 ```
 
 - Start the project locally
