@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { makePayment } from "./Shurjopay.js";
+import { authentication, makePayment } from "shurjopay-js";
+
+
 const Execute = () => {
   const [inputs, setInputs] = useState({});
   const [loading, setLoading] = useState(false)
@@ -18,7 +20,10 @@ const Execute = () => {
   //payment function
   async function payNow(){
     setLoading(true);
+   console.log(await authentication())
+   console.log(await makePayment(order_id, inputs))
         const makePayment_details= await makePayment(order_id, inputs);
+ 
           const { checkout_url } = makePayment_details;
           if (checkout_url) {
            
@@ -37,7 +42,7 @@ const Execute = () => {
         <div align="center" className="divlogo">
           <img
             className="logo"
-            src="https://d298h3gigxsryg.cloudfront.net/exhibitors/dUJ4EZNavnCYAn942NzQRVaQWbWk6gloHQtSr10a.png"
+            src="https://shurjopay.com.bd/dev/images/shurjoPay.png"
             alt=""
           />
         </div>

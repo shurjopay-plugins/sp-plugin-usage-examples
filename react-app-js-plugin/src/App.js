@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Execute/>}/>
         <Route path='/payment' element={<Execute/>}/>
-        <Route path='/return' element={<Return/>}/>
+        <Route path='/ipn' element={<Return/>}/>
       </Routes>
       </BrowserRouter>
     

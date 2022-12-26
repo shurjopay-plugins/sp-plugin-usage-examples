@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { verifyPayment } from "./Shurjopay.js";
+import { verifyPayment } from "shurjopay-js";
 
 const Return = () => {
   const [details, setDetails] = useState({});
