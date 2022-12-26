@@ -28,6 +28,7 @@ composer update
 
 ``ENGINE_URL="https://sandbox.shurjopayment.com"
 ``
+
 Then, Please run below commands which will give a ``ShujopayConfig.php`` file under your ``config`` folder. Our package will take necessary ``.env`` credentials from provided ``ShurjopayConfig.php`` file. So, load will be decresed for your application with ``.env`` file and application will be run faster.
 ```
 php artisan vendor:publish --tag=shurjopay
