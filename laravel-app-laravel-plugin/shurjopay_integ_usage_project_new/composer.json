@@ -11,7 +11,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "shurjomukhi/shurjopay-laravel-plugin":"dev-feature/laravel"
+        "shurjomukhi/shurjopay-laravel-plugin":"dev-dev"
     },
     "repositories": [
         {

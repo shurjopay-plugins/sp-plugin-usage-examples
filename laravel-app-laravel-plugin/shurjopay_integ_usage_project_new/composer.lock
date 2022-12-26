@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e93952a45bba6f6c5e532cdd9d03a98a",
+    "content-hash": "51d5bfcd341ea5c2c1c60e26a7086686",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2577,16 +2577,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.9",
+            "version": "v0.11.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1acec99d6684a54ff92f8b548a4e41b566963778"
+                "reference": "e9eadffbed9c9deb5426fd107faae0452bf20a36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1acec99d6684a54ff92f8b548a4e41b566963778",
-                "reference": "1acec99d6684a54ff92f8b548a4e41b566963778",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/e9eadffbed9c9deb5426fd107faae0452bf20a36",
+                "reference": "e9eadffbed9c9deb5426fd107faae0452bf20a36",
                 "shasum": ""
             },
             "require": {
@@ -2647,9 +2647,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.9"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.10"
             },
-            "time": "2022-11-06T15:29:46+00:00"
+            "time": "2022-12-23T17:47:18+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -2874,21 +2874,19 @@
         },
         {
             "name": "shurjomukhi/shurjopay-laravel-plugin",
-            "version": "dev-feature/laravel",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shurjopay-plugins/sp-plugin-laravel.git",
-                "reference": "9be26f1bb4cffc364aefc72791640dd435bc8523"
+                "reference": "e5539a0feecaa050b16e67bc0f4c28bb779f2ae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-laravel/zipball/9be26f1bb4cffc364aefc72791640dd435bc8523",
-                "reference": "9be26f1bb4cffc364aefc72791640dd435bc8523",
+                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-laravel/zipball/e5539a0feecaa050b16e67bc0f4c28bb779f2ae5",
+                "reference": "e5539a0feecaa050b16e67bc0f4c28bb779f2ae5",
                 "shasum": ""
             },
-            "require-dev": {
-                "phpunit/phpunit": "9.5.x-dev"
-            },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2900,11 +2898,6 @@
             "autoload": {
                 "psr-4": {
                     "Shurjomukhi\\ShurjopayLaravelPlugin\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Shurjomukhi\\ShurjopayLaravelPlugin\\Tests\\": "tests"
                 }
             },
             "license": [
@@ -2934,10 +2927,10 @@
                 "shurjopay-payment-gateway"
             ],
             "support": {
-                "source": "https://github.com/shurjopay-plugins/sp-plugin-laravel/tree/feature/laravel",
+                "source": "https://github.com/shurjopay-plugins/sp-plugin-laravel/tree/dev",
                 "issues": "https://github.com/shurjopay-plugins/sp-plugin-laravel/issues"
             },
-            "time": "2022-12-20T07:16:52+00:00"
+            "time": "2022-12-26T12:34:36+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5948,16 +5941,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.16.5",
+            "version": "v1.16.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "9ec5338d13bdc941a23347cb36385988c525fe02"
+                "reference": "2e8be54590bde421eb04e461a1421302a5b22cca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/9ec5338d13bdc941a23347cb36385988c525fe02",
-                "reference": "9ec5338d13bdc941a23347cb36385988c525fe02",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/2e8be54590bde421eb04e461a1421302a5b22cca",
+                "reference": "2e8be54590bde421eb04e461a1421302a5b22cca",
                 "shasum": ""
             },
             "require": {
@@ -6004,7 +5997,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-12-14T14:54:21+00:00"
+            "time": "2022-12-19T15:41:32+00:00"
         },
         {
             "name": "mockery/mockery",
