@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { authentication, makePayment } from "shurjopay-js";
+import { makePayment } from "shurjopay-js";
 
 
 const Execute = () => {
@@ -20,8 +20,7 @@ const Execute = () => {
   //payment function
   async function payNow(){
     setLoading(true);
-   console.log(await authentication())
-   console.log(await makePayment(order_id, inputs))
+ 
         const makePayment_details= await makePayment(order_id, inputs);
  
           const { checkout_url } = makePayment_details;
