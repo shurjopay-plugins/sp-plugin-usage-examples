@@ -52,7 +52,7 @@ button {
   position: relative;
 }
 
-#form {
+#section {
   padding: 30px 40px;
   display: flex;
   flex-wrap: wrap;
@@ -86,6 +86,7 @@ select {
 
 .spButton {
   display: block;
+  margin: auto;
   max-width: 250px;
   width: 100%;
   padding: 10px 10px;

@@ -1,4 +1,4 @@
-import { verifyPayemt, verify_status } from "./ShurjoPay.js";
+import { verifyPayment } from "./Shurjopay.js";
 const customer_name = document.getElementById("customer_name");
 const Address = document.getElementById("Address");
 const bank_trx_id = document.getElementById("bank_trx_id");
@@ -15,17 +15,13 @@ async function status() {
   const url_string = window.location.href.toLowerCase();
   const url = new URL(url_string);
   const order_id = url.searchParams.get("order_id");
-  const tokendetails = sessionStorage.getItem(order_id);
-  const [splitTokenDetails] = tokendetails.split(",");
-
-  await verifyPayemt(splitTokenDetails[0], splitTokenDetails[1], order_id);
-
-  for (const values of verify_status) {
+  const verify_status=await verifyPayment(order_id);
+  for (const values of  verify_status) {
     customer_name.innerHTML = values.name;
     Address.innerHTML = values.address;
     bank_trx_id.innerHTML = values.bank_trx_id;
     currency.innerHTML = values.currency;
-    document.getElementById("disc_percent").innerHTML = values.disc_percent;
+    disc_percent.innerHTML = values.disc_percent;
     invoice_no.innerHTML = values.invoice_no;
     method.innerHTML = values.method;
     sp_message.innerHTML = values.sp_message;

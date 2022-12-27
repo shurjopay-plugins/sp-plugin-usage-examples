@@ -1,32 +1,29 @@
-import { makePayment, makePayment_details, token_details } from "./ShurjoPay.js";
+import { makePayment } from "./Shurjopay.js";
 
 const form = document.querySelector("form");
-form.addEventListener("submit", handleSubmit);
-let client_ip = "";
+form.addEventListener('change', handleChange);
+
+
+let formdata="";
 const order_id = "sp315689";
 
-fetch("https://checkip.amazonaws.com/")
-  .then((res) => res.text())
-  .then((ip) => {
-    client_ip = ip;
-  });
-
-function handleSubmit(event) {
-  event.preventDefault();
-  const data = new FormData(event.target);
-  const formdata = Object.fromEntries(data.entries());
-  payNow(formdata);
+  function handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    formdata= (({ ...formdata, [name]: value }))
+  };
+  document.getElementById("payButton").onclick=async function handleSubmit() {
+    payNow(formdata)
 }
 
 async function payNow(formdata) {
-  const { token, token_type, store_id } = token_details;
-  await makePayment(token_type, token, store_id, order_id, formdata, client_ip);
-  const { sp_order_id, checkout_url } = makePayment_details;
+
+  const makePayment_details=await makePayment(order_id, formdata);
+  const { checkout_url } = makePayment_details;
   if (checkout_url) {
     window.location.href = checkout_url;
     form.reset();
   } else {
     alert("Please Input Valid Information");
   }
-  sessionStorage.setItem(sp_order_id, [token_type, token]);
 }
