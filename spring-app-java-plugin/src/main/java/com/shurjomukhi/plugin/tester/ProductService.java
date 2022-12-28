@@ -36,7 +36,7 @@ public class ProductService {
 
 		request.setPrefix("sp");
 		request.setAmount(product.getPrice());
-		request.setCustomerOrderId("sp315689");
+		request.setOrderId("sp315689");// replays by customerOrderID when update dependency downloaded
 		request.setCurrency("BDT");
 		request.setCustomerName("Maharab kibria");
 		request.setCustomerAddress("Dhaka");
