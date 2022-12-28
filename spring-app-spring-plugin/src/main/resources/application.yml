@@ -5,5 +5,5 @@ shurjopay:
   sp-callback: https://sandbox.shurjopayment.com/response
   logging:
     file:
-      path: /home/alamin/git/sp-plugin-spring/tmp_spring
-      name: shurjopay-plugin.log
+      path: /var/log
+      name: sp-plugin-spring.log

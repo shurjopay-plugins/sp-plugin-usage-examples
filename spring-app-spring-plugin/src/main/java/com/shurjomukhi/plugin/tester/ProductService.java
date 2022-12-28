@@ -22,8 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ProductService {
 
-	@Autowired
-	private Shurjopay plugin;
+	// Initialize shurjopay
+	private @Autowired Shurjopay shurjopay;
 	
 	public PaymentRes buy(Product product) {
 		if (Objects.isNull(product)) throw new NotAcceptableStatusException("Product details must be provided to buy.");
@@ -32,7 +32,7 @@ public class ProductService {
 		PaymentReq request = new PaymentReq();
 		request.setPrefix("sp");
 		request.setAmount(product.getPrice());
-		request.setCustomerOrderId("sp315689");
+		request.setOrderId("sp315689"); //update customerOrderId to orderId
 		request.setCurrency("BDT");
 		request.setCustomerName("Maharab kibria");
 		request.setCustomerAddress("Dhaka");
@@ -42,7 +42,7 @@ public class ProductService {
 		request.setClientIp("102.101.1.1");
 
 		try {
-			return plugin.makePayment(request);
+			return shurjopay.makePayment(request);
 		} catch (ShurjopayException e) {
 
 			log.error("Shurjopay exception occurred while making payment.", e);
@@ -54,7 +54,7 @@ public class ProductService {
 		if (orderId.isBlank()) throw new NotAcceptableStatusException("Order id cann't be empty to verify payment.");
 		if (log.isDebugEnabled()) log.debug("Requesting to verify payment using {} order id", orderId);
 		try {
-			var verifiedPayment = plugin.verifyPayment(orderId);
+			var verifiedPayment = shurjopay.verifyPayment(orderId);
 			if (log.isDebugEnabled()) log.debug("Verify Payment response: {}", verifiedPayment);
 			
 			return verifiedPayment.getSpStatusCode().equals(ShurjopayStatus.SHURJOPAY_SUCCESS.code());
@@ -69,10 +69,10 @@ public class ProductService {
 		if (log.isDebugEnabled(null)) log.debug("Requesting to verify payment using {} order id", orderId);
 		
 		try {
-			var verifiedPayment = plugin.checkPaymentStatus(orderId);
+			var verifiedPayment = shurjopay.checkPaymentStatus(orderId);
 			if (log.isDebugEnabled()) log.debug("Checking payment status response: {}", verifiedPayment);
 			
-			return plugin.checkPaymentStatus(orderId);
+			return shurjopay.checkPaymentStatus(orderId);
 		} catch (ShurjopayException e) {
 			log.error("Shurjopay exception occurred while checking payment status", e);
 			return null;

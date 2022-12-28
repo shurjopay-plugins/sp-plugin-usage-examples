@@ -52,10 +52,10 @@ public class ProductController {
 	@GetMapping("/response")
 	public String paymentResponse(@RequestParam("order_id") String orderId, Model model) {
 		if (service.verifyOrder(orderId)) {
-			model.addAttribute("msg", ShurjopayStatus.SHURJOPAY_SUCCESS.message());
+			model.addAttribute("msg", ShurjopayStatus.SHURJOPAY_SUCCESS.status());
 			model.addAttribute("orderId", orderId);
 		} else
-			model.addAttribute("msg", ShurjopayStatus.PAYMENT_FAILED.message());
+			model.addAttribute("msg", ShurjopayStatus.PAYMENT_FAILED.status());
 		return "status";
 	}
 
