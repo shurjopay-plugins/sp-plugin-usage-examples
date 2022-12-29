@@ -5,7 +5,7 @@
 
 # https://github.com/github/gitignore/blob/master/Java.gitignore
 *.jpage
-!*.jar
+*.jar
 *.war
 *.ear
 *.nar
