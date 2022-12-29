@@ -68,7 +68,6 @@ public class ProductController {
 	@GetMapping("/payment-status/{id}")
 	public String paymentStutus(@PathVariable("id") String id, Model model) {
 		model.addAttribute("paymentStat", service.checkPaymentStatus(id));
-		System.out.println(service.checkPaymentStatus(id));
 		return "payment-status";
 	}
 
