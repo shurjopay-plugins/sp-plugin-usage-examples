@@ -1,23 +1,24 @@
-package com.example.services;
+package com.swing.example.services;
 
-import com.shurjopay.plugin.model.PaymentReq;
-import com.shurjopay.plugin.model.PaymentRes;
-import com.example.model.PaymentInfo;
-import com.shurjopay.plugin.Shurjopay;
-import com.shurjopay.plugin.model.VerifiedPayment;
+import com.shurjomukhi.Shurjopay;
+import com.shurjomukhi.ShurjopayException;
+import com.shurjomukhi.model.PaymentReq;
+import com.shurjomukhi.model.PaymentRes;
+import com.shurjomukhi.model.VerifiedPayment;
+import com.swing.example.model.PaymentInfo;
 
 /**
  *
- * @author Md-Ashraf
+ * @author Ashraful Islam
  */
 public class PaymentService {
 
-	/*
+	/**
 	 * This service method use sp-java-plugin and call on makePayment(PaymentReq
-	 * req) method to complete payment opertation. It need instance of PaymentInfo
+	 * req) method to complete payment operation. It need instance of PaymentInfo
 	 * class to feed payment data to the plugin makePayment(PaymentReq req) method.
 	 */
-	public PaymentRes makePayment(PaymentInfo payInfo) {
+	public PaymentRes makePayment(PaymentInfo payInfo) throws ShurjopayException {
 
 		Shurjopay shurjopay = new Shurjopay();
 		PaymentReq req = mapPaymentRequest(payInfo);
@@ -29,36 +30,36 @@ public class PaymentService {
 	}
 	
 
-	/*
-	 * This method verify the orderId of already completed payment opration . It
-	 * call on sp-java-pluginsc verifyPayment(String orderId) method to complete its
+	/**
+	 * This method verify the orderId of already completed payment operation . It
+	 * call on sp-java-plugin verifyPayment(String orderId) method to complete its
 	 * operation.
 	 */
-	public VerifiedPayment verification(PaymentRes res) {
+	public VerifiedPayment verification(PaymentRes res) throws ShurjopayException {
 		Shurjopay shurjopay = new Shurjopay();
 
-		VerifiedPayment vp = shurjopay.verifyPayment(res.getSpOrderId());
+		VerifiedPayment vp = shurjopay.verifyPayment(res.getSpTxnId());
 		return vp;
 
 	}
 
-	public VerifiedPayment checkPaymentStatus(VerifiedPayment vp) {
+	public VerifiedPayment checkPaymentStatus(VerifiedPayment vp) throws ShurjopayException {
 		Shurjopay shurjopay = new Shurjopay();
-		VerifiedPayment checkPaymentStatus = shurjopay.checkPaymentStatus(vp.getOrderId());
+		VerifiedPayment checkPaymentStatus = shurjopay.checkPaymentStatus(vp.getCustomerOrderId());
 		System.out.println(checkPaymentStatus.toString());
 
 		return checkPaymentStatus;
 
 	}
 
-	/* This method map PaymentReq class from PaymentInfo class */
+	/** This method map PaymentReq class from PaymentInfo class */
 	private PaymentReq mapPaymentRequest(PaymentInfo payInfo) {
 
 		PaymentReq req = new PaymentReq();
 
 		req.setPrefix(payInfo.getPrefix());
 		req.setAmount(payInfo.getAmount());
-		req.setOrderId(payInfo.getOrderId());
+		req.setCustomerOrderId(payInfo.getCustomerOrderId());
 		req.setCurrency(payInfo.getCurrency());
 		req.setCustomerName(payInfo.getCustomerName());
 		req.setCustomerAddress(payInfo.getCustomerAddress());
