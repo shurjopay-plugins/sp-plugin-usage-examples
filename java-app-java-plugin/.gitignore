@@ -1,10 +1,11 @@
 *.properties
+!*shurjopay-sample.properties
 !*-sample.properties
 !*.properties.sample
 
 # https://github.com/github/gitignore/blob/master/Java.gitignore
 *.jpage
-*.jar
+!*.jar
 *.war
 *.ear
 *.nar

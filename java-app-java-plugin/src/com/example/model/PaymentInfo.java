@@ -1,7 +1,5 @@
 package com.example.model;
 
-import java.util.Random;
-
 /**
  *
  * @author Md-Ashraf
@@ -14,7 +12,7 @@ public class PaymentInfo {
    
     private Double amount=0.0;
 
-    private String orderId="sp10192022";
+    private String customerOrderId="sp10192022";
     
     private String currency="BDT";
 
@@ -54,12 +52,12 @@ public class PaymentInfo {
         this.amount = amount;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public String getCustomerOrderId() {
+        return customerOrderId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setCustomerOrderId(String orderId) {
+        this.customerOrderId = orderId;
     }
 
     public String getCurrency() {
