@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
-import bd.com.shurjopay.plugin.Shurjopay;
-import bd.com.shurjopay.plugin.ShurjopayException;
-import bd.com.shurjopay.plugin.constants.ShurjopayStatus;
-import bd.com.shurjopay.plugin.model.PaymentReq;
-import bd.com.shurjopay.plugin.model.PaymentRes;
-import bd.com.shurjopay.plugin.model.VerifiedPayment;
+import com.shurjomukhi.Shurjopay;
+import com.shurjomukhi.ShurjopayException;
+import com.shurjomukhi.constants.ShurjopayStatus;
+import com.shurjomukhi.model.PaymentReq;
+import com.shurjomukhi.model.PaymentRes;
+import com.shurjomukhi.model.VerifiedPayment;
+
 import lombok.extern.slf4j.Slf4j;
 /**
  * 
@@ -32,7 +33,7 @@ public class ProductService {
 		PaymentReq request = new PaymentReq();
 		request.setPrefix("sp");
 		request.setAmount(product.getPrice());
-		request.setOrderId("sp315689"); //update customerOrderId to orderId
+		request.setCustomerOrderId("sp315689");
 		request.setCurrency("BDT");
 		request.setCustomerName("Maharab kibria");
 		request.setCustomerAddress("Dhaka");

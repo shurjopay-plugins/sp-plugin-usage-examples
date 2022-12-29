@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import bd.com.shurjopay.plugin.constants.ShurjopayStatus;
-import bd.com.shurjopay.plugin.model.PaymentRes;
+import com.shurjomukhi.constants.ShurjopayStatus;
+import com.shurjomukhi.model.PaymentRes;
 /**
  * Root controller to manage product payment cycle
  * 
@@ -52,10 +52,10 @@ public class ProductController {
 	@GetMapping("/response")
 	public String paymentResponse(@RequestParam("order_id") String orderId, Model model) {
 		if (service.verifyOrder(orderId)) {
-			model.addAttribute("msg", ShurjopayStatus.SHURJOPAY_SUCCESS.status());
+			model.addAttribute("msg", ShurjopayStatus.SHURJOPAY_SUCCESS.message());
 			model.addAttribute("orderId", orderId);
 		} else
-			model.addAttribute("msg", ShurjopayStatus.PAYMENT_FAILED.status());
+			model.addAttribute("msg", ShurjopayStatus.PAYMENT_FAILED.message());
 		return "status";
 	}
 
@@ -68,7 +68,6 @@ public class ProductController {
 	@GetMapping("/payment-status/{id}")
 	public String paymentStutus(@PathVariable("id") String id, Model model) {
 		model.addAttribute("paymentStat", service.checkPaymentStatus(id));
-		System.out.println(service.checkPaymentStatus(id));
 		return "payment-status";
 	}
 
