@@ -59,6 +59,13 @@
 			<artifactId>sp-plugin-java</artifactId>
 			<version>0.1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.gv2011.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.3.5</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
