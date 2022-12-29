@@ -13,7 +13,10 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
+
+	/** Product Name */
 	private String name;
+
+	/** Product Price */
 	private Double price;
 }

@@ -1,20 +1,22 @@
 package com.shurjomukhi.plugin.tester;
 
-import java.util.Objects;
-
+import com.shurjomukhi.Shurjopay;
+import com.shurjomukhi.ShurjopayException;
+import com.shurjomukhi.constants.ShurjopayStatus;
+import com.shurjomukhi.model.PaymentReq;
+import com.shurjomukhi.model.PaymentRes;
+import com.shurjomukhi.model.VerifiedPayment;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
-import bd.com.shurjopay.plugin.Shurjopay;
-import bd.com.shurjopay.plugin.ShurjopayException;
-import bd.com.shurjopay.plugin.constants.ShurjopayStatus;
-import bd.com.shurjopay.plugin.model.PaymentReq;
-import bd.com.shurjopay.plugin.model.PaymentRes;
-import bd.com.shurjopay.plugin.model.VerifiedPayment;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Objects;
 /**
- * 
+ * Payment process handle by this class as like
+ * <p>Process purchase request with demo static user name and password.</p>
+ * <p>Check and verify order ID.</p>
+ * <p>Check payment status is payed or not.</p>
  * @author Al - Amin
  * @since 2022-07-18
  */
@@ -24,7 +26,12 @@ public class ProductService {
 
 	@Autowired
 	private Shurjopay plugin;
-	
+
+	/**
+	 * Process payment request with demo static user name and password.
+	 * @param product {@link Product}
+	 * @return payment response
+	 */
 	public PaymentRes buy(Product product) {
 		if (Objects.isNull(product)) throw new NotAcceptableStatusException("Product details must be provided to buy.");
 		if (log.isDebugEnabled()) log.debug("Product details: {}", product);
@@ -36,7 +43,7 @@ public class ProductService {
 
 		request.setPrefix("sp");
 		request.setAmount(product.getPrice());
-		request.setOrderId("sp315689");// replays by customerOrderID when update dependency downloaded
+		request.setCustomerOrderId("sp315689");
 		request.setCurrency("BDT");
 		request.setCustomerName("Maharab kibria");
 		request.setCustomerAddress("Dhaka");
@@ -54,6 +61,11 @@ public class ProductService {
 		}
 	}
 
+	/**
+	 * Check and verify order ID.
+	 * @param orderId of type {@link String}
+	 * @return true if oder ID is verified otherwise false.
+	 */
 	public boolean verifyOrder(String orderId) {
 		if (orderId.isBlank()) throw new NotAcceptableStatusException("Order id cann't be empty to verify payment.");
 		if (log.isDebugEnabled()) log.debug("Requesting to verify payment using {} order id", orderId);
@@ -68,6 +80,11 @@ public class ProductService {
 		}
 	}
 
+	/**
+	 * Check payment status is payed or not.
+	 * @param orderId  of type {@link String}
+	 * @return verifiedPayment if order is verified otherwise null.
+	 */
 	public VerifiedPayment checkPaymentStatus(String orderId) {
 		if (orderId.isBlank()) throw new NotAcceptableStatusException("Order id cann't be empty to verify payment.");
 		if (log.isDebugEnabled(null)) log.debug("Requesting to verify payment using {} order id", orderId);

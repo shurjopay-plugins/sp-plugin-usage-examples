@@ -55,9 +55,9 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>bd.com.shurjopay.plugin</groupId>
+			<groupId>bd.com.shurjomukhi</groupId>
 			<artifactId>sp-plugin-java</artifactId>
-			<version>1.0.0</version>
+			<version>0.1.0</version>
 		</dependency>
 	</dependencies>
 

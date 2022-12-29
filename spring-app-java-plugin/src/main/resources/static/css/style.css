@@ -1,9 +1,23 @@
 .card {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	max-width: 300px;
+	box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+	max-width: 400px;
 	margin: auto;
 	text-align: center;
 	font-family: arial;
+	background-color: #f4f6f8;
+	padding: 20px;
+	margin-top: 30px;
+}
+
+.card1 {
+	box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+	max-width: 50%;
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+	background-color: #f4f6f8;
+	padding: 20px;
+	margin-top: 30px;
 }
 
 .price {
@@ -27,7 +41,7 @@ table {
   font-family: arial, sans-serif;
   text-align: center;
   border-collapse: collapse;
-  width: 50%;
+  width: -webkit-fill-available;
 }
 
 td, th {
@@ -42,4 +56,13 @@ tr:nth-child(even) {
 
 .card button:hover {
 	opacity: 0.7;
+}
+
+.card h3 {
+	color: green;
+}
+
+.card1 h2 {
+	text-align: center;
+	color: green;
 }
