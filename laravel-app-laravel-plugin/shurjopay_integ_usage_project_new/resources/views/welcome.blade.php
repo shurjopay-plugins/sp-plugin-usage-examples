@@ -66,14 +66,14 @@
                                 :<input type="text" name="amount" value="{{old('amount')}}" placeholder="Enter amount">
                             </td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <td>
                                 <span>order_id </span>
                             </td>
                             <td>
                                 :<input type="text" name="order_id" value="{{old('order_id')}}" placeholder="Enter order_id">
                             </td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <td>
                                 <span>discount_amount </span>

@@ -8,8 +8,9 @@
 <body>
 	
 	<div class="card">
-		<h4 th:text="*{msg}"></h4>
-		<p th:text="*{orderId}"></p>
+		<h3 th:text="*{msg}"></h3>
+		<span>Transaction ID: <span th:text="*{orderId}"></span></span>
+		<br><br>
 		<a href="#" th:href="@{/payment-status/{id}(id = *{orderId})}" style="width: 100%;">View Status</a>
 	</div>
 </body>

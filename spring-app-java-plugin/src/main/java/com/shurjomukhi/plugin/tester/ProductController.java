@@ -1,5 +1,6 @@
 package com.shurjomukhi.plugin.tester;
 
+import com.shurjomukhi.model.PaymentRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import bd.com.shurjopay.plugin.model.PaymentRes;
 /**
  * Root controller to manage product payment cycle
- * 
  * @author Al - Amin
  * @since 2022-07-18
  */
@@ -25,9 +24,9 @@ public class ProductController {
 	private ProductService service;
 
 	/**
-	 * 
-	 * @param model
-	 * @return root page
+	 * Show product card with product picture and price
+	 * @param model of type {@link Model}
+	 * @return root page with product details
 	 */
 	@GetMapping
 	public String showProductPage(Model model) {
@@ -36,17 +35,22 @@ public class ProductController {
 		return "product";
 	}
 
+	/**
+	 * Process purchase request and redirect to payment page
+	 * @param product of type {@link Product}
+	 * @return Redirect to payment page
+	 */
 	@PostMapping("/buy-product")
-	public String buyProduct(@ModelAttribute("product") Product product, Model model) {
+	public String buyProduct(@ModelAttribute("product") Product product) {
 		PaymentRes response = service.buy(product);
 		return "redirect:" + response.getPaymentUrl();
 	}
 
 	/**
 	 * Get shurjopay response to get order id and verify payment here
-	 * @param orderId
-	 * @param model
-	 * @return
+	 * @param orderId of type {@link String}
+	 * @param model of type {@link Model}
+	 * @return Redirect to payment status page.
 	 */
 	@GetMapping("/response")
 	public String paymentResponse(@RequestParam("order_id") String orderId, Model model) {
@@ -60,9 +64,9 @@ public class ProductController {
 
 	/**
 	 * Checking payment status by order id
-	 * @param order id
-	 * @param model
-	 * @return payment status page to show the current state of payment
+	 * @param id orderId of type {@link String}
+	 * @param model of type {@link Model}
+	 * @return Payment status page to show the current state of payment
 	 */
 	@GetMapping("/payment-status/{id}")
 	public String paymentStutus(@PathVariable("id") String id, Model model) {
