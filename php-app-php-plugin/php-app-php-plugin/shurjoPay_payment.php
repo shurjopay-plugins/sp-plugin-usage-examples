@@ -7,33 +7,34 @@
  * @since 2022-10-15
  */
 require_once 'ShurjopayPlugin.php';
+require_once 'PaymentRequest.php';
 
 $amount = (float)$_POST['pamount'];
 $sp_instance = new ShurjopayPlugin();
+$request = new PaymentRequest();
 
-$payload = array(
+$request->currency = 'BDT';
+$request->amount = $amount;
+$request->discountAmount = '0';
+$request->discPercent = '0';
+$request->customerName = 'MD Wali Mosnad Ayshik';
+$request->customerPhone = '01775503498';
+$request->customerEmail = 'test@gmail.com';
+$request->customerAddress = 'Dhaka';
+$request->customerCity = 'Dhaka';
+$request->customerState = 'Dhaka';
+$request->customerPostcode = '1207';
+$request->customerCountry = 'Bangladesh';
+$request->shippingAddress = 'Sirajganj';
+$request->shippingCity = 'Dhaka';
+$request->shippingCountry = 'Bangladesh';
+$request->receivedPersonName = 'Ayshik';
+$request->shippingPhoneNumber = '01775503498';
+$request->value1 = 'value1';
+$request->value2 = 'value2';
+$request->value3 = 'value3';
+$request->value4 = 'value4';
 
-    'currency' => 'BDT',
-    'amount' => $amount,
-    // Order information
-    'discsount_amount' => 0,
-    'disc_percent' => 0,
-    // Customer information
-    'client_ip' => $_SERVER['REMOTE_ADDR'] ? : ($_SERVER['HTTP_X_FORWARDED_FOR'] ? : $_SERVER['HTTP_CLIENT_IP']) ,
-    'customer_name' => 'MD Wali Mosnad Ayshik',
-    'customer_phone' => '01775503498',
-    'email' => 'test@example.com',
-    'customer_address' => 'Dhaka',
-    'customer_city' => 'Dhaka',
-    'customer_state' => 'Dhaka',
-    'customer_postcode' => '1207',
-    'customer_country' => 'Bangladesh',
-    'value1' => 'Clint_IP' . '-' . $_SERVER['REMOTE_ADDR'] ? : ($_SERVER['HTTP_X_FORWARDED_FOR'] ? : $_SERVER['HTTP_CLIENT_IP']) ,
-    'value2' => 'value2',
-    'value3' => 'value3',
-    'value4' => 'value4'
-);
-
-$sp_instance->makePayment($payload);
+$sp_instance->makePayment($request);
 
 ?>
