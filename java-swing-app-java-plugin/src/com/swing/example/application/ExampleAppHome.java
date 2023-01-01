@@ -25,7 +25,7 @@ import com.swing.example.model.PaymentInfo;
 import com.swing.example.services.PaymentService;
 
 /**
- * This is the main class where Application initiated.
+ * This is the main class where Java Swing Application initiate.
  *
  * @author Ashraful Islam
  */

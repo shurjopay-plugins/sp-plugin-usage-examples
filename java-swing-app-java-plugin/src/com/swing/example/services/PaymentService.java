@@ -8,6 +8,9 @@ import com.shurjomukhi.model.VerifiedPayment;
 import com.swing.example.model.PaymentInfo;
 
 /**
+ * This is the service class which use sp-java-plugin to serve the payment process.
+ * To know in details how to integrate sp-java-plugin to your system follow this 
+ * https://github.com/shurjopay-plugins/sp-plugin-java
  *
  * @author Ashraful Islam
  */
