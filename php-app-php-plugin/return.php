@@ -6,7 +6,7 @@
  * @author Md Wali Mosnad Ayshik
  * @since 2022-10-15
  */
-require_once 'ShurjopayPlugin.php';
+require_once 'src/ShurjopayPlugin.php';
 $sp_instance = new ShurjopayPlugin();
 $response_data = (object)array(
     'Status' => 'No data found'
