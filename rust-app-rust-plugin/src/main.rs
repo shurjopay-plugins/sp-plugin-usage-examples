@@ -1,6 +1,6 @@
 // #![allow(dead_code, unused_variables, non_snake_case, unused_imports, non_camel_case_types)]
 
-use sp_plugin_rust_test::shurjopay::ShurjopayPlugin;
+use shurjopay_plugin::shurjopay::ShurjopayPlugin;
 use std::io;
 
 fn main() 
