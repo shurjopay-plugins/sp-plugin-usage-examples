@@ -1,6 +1,12 @@
 <?php
-//use Shurjomukhi\ShurjopayPhpPlugin;
-//use Shurjomukhi\ShurjopayPhpPlugin\PaymentRequest;
+
+use ShurjopayPlugin\PaymentRequest;
+use ShurjopayPlugin\Shurjopay;
+
+
+require_once('src/Shurjopay.php');
+require_once('src/PaymentRequest.php');
+
 /**
  *
  * PHP Plug-in service to provide shurjoPay get way services.
@@ -8,12 +14,11 @@
  * @author Md Wali Mosnad Ayshik
  * @since 2022-10-15
  */
-require_once 'src/ShurjopayPlugin.php';
- require_once 'src/PaymentRequest.php';
-//use Shurjomukhi\ShurjopayPhpPlugin\a;
+
+
 
 $amount = (float)$_POST['pamount'];
-$sp_instance = new ShurjopayPlugin();
+$sp_instance = new Shurjopay();
 $request = new PaymentRequest();
 
 $request->currency = 'BDT';

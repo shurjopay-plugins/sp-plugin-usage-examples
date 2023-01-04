@@ -1,4 +1,5 @@
 <?php
+use ShurjopayPlugin\Shurjopay;
 /**
  *
  * PHP Plug-in service to provide shurjoPay get way services.
@@ -6,8 +7,9 @@
  * @author Md Wali Mosnad Ayshik
  * @since 2022-10-15
  */
-require_once 'src/ShurjopayPlugin.php';
-$sp_instance = new ShurjopayPlugin();
+require_once 'src/Shurjopay.php';
+
+$sp_instance = new Shurjopay();
 $response_data = (object)array(
     'Status' => 'No data found'
 );
