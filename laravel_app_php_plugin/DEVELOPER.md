@@ -355,10 +355,12 @@ Yes ! , you can . By default ``sp-plugin-php`` provide logging file in applicati
 /* this SP_LOG_LOCATION will work for only laravel_version 5.1x to 9.0x(or above)"  */
 define('SP_LOG_LOCATION',storage_path('logs/shurjoPay-plugin-log/'), false);
 ```
+#### References
+ Please see our [sample integration](https://github.com/shurjopay-plugins/sp-plugin-usage-examples/tree/dev/laravel-app-laravel-plugin/shurjopay_integ_usage_project_new) project which will give you some idea and help you to integrate our package.
 
 #### License
 This code is under the [MIT open source License](http://www.opensource.org/licenses/mit-license.php).
-#### Sample Integration
- Please see our [sample integration](https://github.com/shurjopay-plugins/sp-plugin-usage-examples/tree/dev/laravel-app-laravel-plugin/shurjopay_integ_usage_project_new) project which will give you some idea and help you to integrate our package.
-#### Who do I talk to? 
-For any technical assistance please [contact](https://shurjopay.com.bd/#contacts) now.
+
+#### Please [contact](https://shurjopay.com.bd/#contacts) with shurjoPay team for more detail!
+<hr>
+Copyright ©️2022 shurjoMukhi Limited.
