@@ -161,11 +161,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Shurjomukhi\ShurjopayPhpPlugin\ShurjopayServiceProvider::class,
         /*
          * Package Service Providers...
          */
-
+        ShurjopayPlugin\ShurjopayServiceProvider::class,
         /*
          * Application Service Providers...
          */

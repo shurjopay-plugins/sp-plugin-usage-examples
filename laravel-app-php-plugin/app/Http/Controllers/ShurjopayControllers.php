@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Shurjomukhi\ShurjopayPhpPlugin\ShurjopayPlugin;
-use Shurjomukhi\ShurjopayPhpPlugin\PaymentRequest;
+use ShurjopayPlugin\Shurjopay;
+use ShurjopayPlugin\PaymentRequest;
 use Illuminate\Http\Request;
 
 class ShurjopayControllers extends Controller
 {
-    public function sp(){
+    public function make_payment_request(){
 
-        $sp_instance = new ShurjopayPlugin();
+        $sp_instance = new Shurjopay();
         $request = new PaymentRequest();
-        
+
         $request->currency = 'BDT';
         $request->amount = 100;
         $request->discountAmount = '0';
@@ -34,21 +34,14 @@ class ShurjopayControllers extends Controller
         $request->value2 = 'value2';
         $request->value3 = 'value3';
         $request->value4 = 'value4';
-        
+
         $sp_instance->makePayment($request);
-        
+
     }
 
-    public function spReturn(Request $request){
-        dd($request->order_id);
-        // $shurjopay_service = new ShurjopayController();
-        // $trxn_response = json_decode($shurjopay_service->verify($order_id));
-
-        // print_r($trxn_response);
-        // exit;
-        
-    
-
-        
+    public function verify_payment(Request $request){
+        $sp_order_id= $request->order_id;
+        $sp_instance = new Shurjopay();
+        return $sp_instance->verifyPayment($sp_order_id);
     }
 }

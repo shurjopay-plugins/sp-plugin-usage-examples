@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/shurjopay', 'ShurjopayControllers@sp')-> name('shurjopay.lara');
-Route::get('/paymentUpdate', 'ShurjopayControllers@spReturn');
+Route::post('/shurjopay', 'ShurjopayControllers@make_payment_request')-> name('shurjopay.lara');
+Route::get('/paymentUpdate', 'ShurjopayControllers@verify_payment');

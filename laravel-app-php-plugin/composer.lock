@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "363ef4a4e2d7449b31fa31f20122798f",
+    "content-hash": "4ed5bf0d109069dfaaf40fdcb15a3474",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -931,16 +931,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.64.0",
+            "version": "2.64.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "889546413c97de2d05063b8cb7b193c2531ea211"
+                "reference": "f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/889546413c97de2d05063b8cb7b193c2531ea211",
-                "reference": "889546413c97de2d05063b8cb7b193c2531ea211",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c",
+                "reference": "f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c",
                 "shasum": ""
             },
             "require": {
@@ -1029,7 +1029,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-26T17:36:00+00:00"
+            "time": "2023-01-01T23:17:36+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1603,24 +1603,24 @@
             "time": "2022-12-19T21:55:10+00:00"
         },
         {
-            "name": "shurjomukhi/shurjopay-php-plugin",
+            "name": "shurjomukhi/shurjopay-plugin-php",
             "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "git@github.com:shurjopay-plugins/sp-plugin-php.git",
-                "reference": "477fa01c360d13cb8cec2f5d9cff651bcea4a79e"
+                "reference": "7ffaa67db6b6974c21f820c8648a9ae1b5c10ac1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-php/zipball/477fa01c360d13cb8cec2f5d9cff651bcea4a79e",
-                "reference": "477fa01c360d13cb8cec2f5d9cff651bcea4a79e",
+                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-php/zipball/7ffaa67db6b6974c21f820c8648a9ae1b5c10ac1",
+                "reference": "7ffaa67db6b6974c21f820c8648a9ae1b5c10ac1",
                 "shasum": ""
             },
             "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Shurjomukhi\\ShurjopayPhpPlugin\\": "src/"
+                    "ShurjopayPlugin\\": "src/"
                 }
             },
             "license": [
@@ -1628,13 +1628,7 @@
             ],
             "authors": [
                 {
-                    "name": "Shurjomukhi Ltd",
-                    "email": "plugindev@shurjomukhi.com.bd"
-                },
-                {
-                    "name": "Md Wali Mosnad Ayshik",
-                    "email": "ayshik.wali@shurjomukhisolutions.com.bd",
-                    "role": "Software Engineer"
+                    "name": "Shurjomukhi Ltd"
                 }
             ],
             "description": "shurjopay is a online payment gateway and easy payment solution",
@@ -1648,7 +1642,7 @@
                 "source": "https://github.com/shurjopay-plugins/sp-plugin-php/tree/dev",
                 "issues": "https://github.com/shurjopay-plugins/sp-plugin-php/issues"
             },
-            "time": "2023-01-01T07:12:18+00:00"
+            "time": "2023-01-04T07:34:00+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3794,16 +3788,16 @@
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
-            "version": "2.2.5",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-                "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19"
+                "reference": "c42125b83a4fa63b187fdf29f9c93cb7733da30c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/4348a3a06651827a27d989ad1d13efec6bb49b19",
-                "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/c42125b83a4fa63b187fdf29f9c93cb7733da30c",
+                "reference": "c42125b83a4fa63b187fdf29f9c93cb7733da30c",
                 "shasum": ""
             },
             "require": {
@@ -3841,9 +3835,9 @@
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "support": {
                 "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
-                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.5"
+                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
-            "time": "2022-09-12T13:28:28+00:00"
+            "time": "2023-01-03T09:29:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6044,7 +6038,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "shurjomukhi/shurjopay-php-plugin": 20
+        "shurjomukhi/shurjopay-plugin-php": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
