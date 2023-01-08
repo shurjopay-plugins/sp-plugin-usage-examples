@@ -107,13 +107,6 @@
       />
       <form action="{% url 'make-sp-payment' %}" method="post">
         {% csrf_token %}
-        <input
-          type="text"
-          name="prefix"
-          value="sp"
-          placeholder="Prefix"
-          required
-        />
 
         <input
           type="text"
