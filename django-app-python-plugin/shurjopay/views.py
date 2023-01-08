@@ -9,11 +9,12 @@ from shurjopay_plugin import ShurjoPayConfigModel, PaymentRequestModel, Verified
 sp_config = ShurjoPayConfigModel(
         SP_USERNAME = settings.SP_USERNAME,
         SP_PASSWORD = settings.SP_PASSWORD,
-        SP_ENDPOINT = settings.SP_ENDPOINT,
-        SP_CALLBACK = settings.SP_CALLBACK,
-        SP_LOGDIR = settings.SP_LOGDIR
+        SP_ENDPOINT= settings.SP_ENDPOINT,
+        SP_RETURN = settings.SP_RETURN,
+        SP_CANCEL = settings.SP_CANCEL,
+        SP_PREFIX= settings.SP_PREFIX,
+        SP_LOGDIR = settings.SP_LOGDIR,
         )
-
 shurjopay = ShurjopayPlugin(sp_config) 
     
 def index(request):
@@ -26,7 +27,6 @@ def check_payment_view(request):
 def make_payment(request):
     if request.method == 'POST':
         payment_request = PaymentRequestModel(
-            prefix=request.POST['prefix'],
             amount=float(request.POST['amount']),
             order_id=request.POST['order_id'],
             currency=request.POST['currency'],
