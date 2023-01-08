@@ -22,8 +22,10 @@ environ.Env.read_env(BASE_DIR / '.env')
 SP_USERNAME=env('SP_USERNAME')
 SP_PASSWORD=env('SP_PASSWORD')
 SP_ENDPOINT=env('SP_ENDPOINT')
-SP_CALLBACK=env('SP_CALLBACK')
-SP_LOGDIR= BASE_DIR / 'logs' / 'shurjopay.log'
+SP_RETURN=env('SP_RETURN')
+SP_CANCEL=env('SP_CANCEL')
+SP_PREFIX=env('SP_PREFIX')
+SP_LOGDIR=env('SP_LOGDIR')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
