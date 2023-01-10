@@ -37,7 +37,7 @@ Next , copy below block of codes and put into "composer.json"
 "repositories": [
                    {
                      "type": "vcs",
-                     "url": "https://github.com/shurjopay-plugins/sp-plugin-laravel.git"
+                     "url": "https://github.com/shurjopay-plugins/sp-plugin-php.git"
                    }
                 ]
 ```
