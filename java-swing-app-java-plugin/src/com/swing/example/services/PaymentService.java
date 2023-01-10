@@ -28,6 +28,7 @@ public class PaymentService {
 		PaymentRes paymentRes = shurjopay.makePayment(req);
 
 		System.out.println(paymentRes.getPaymentUrl());
+		System.out.println(paymentRes.toString());
 
 		return paymentRes;
 	}
