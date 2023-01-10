@@ -58,7 +58,7 @@ Inside this method's body , please put below line and save the file .
 $this->app->make('ShurjopayPlugin\Shurjopay');
 ```
 Then, move that file into ``vendor/shurjomukhi/shurjopay-plugin-php/src`` folder.
-Next, open your application's ``config`` folder and then click on ``app.php`` file. Append the following line into ``providers`` array.
+Next, open your application's ``config`` folder and then click on ``app.php`` file . Append the following line into ``providers`` array.
 
 ```
 ShurjopayPlugin\ShurjopayServiceProvider::class,
@@ -132,7 +132,7 @@ public function make_payment_request()
 
 
 #### Step-4: Ready to run.
-Now application is ready to work. Just give another command in terminal
+Now , application is ready to work. Just give another command in terminal
 
 ```
 php artisan serve
@@ -161,8 +161,7 @@ public function __construct()
         $this->verification_url = env(SHURJOPAY_API) . "api/verification";
     }
 ```
-#### Secondly , copy below lines of ``authenticate()`` method and replace the code of this method
-into ``Shurjopay.php`` .
+#### Secondly , copy below lines of ``authenticate()`` method and replace the code of this method into ``Shurjopay.php`` .
 
 ```
 public function authenticate()
@@ -186,8 +185,7 @@ public function authenticate()
         return $this->SP_TOKEN;
     }
 ```
-#### Finally, copy below lines of ``prepareTransactionPayload($payload)`` method and replace the code of 
-this method into ``Shurjopay.php`` and save the file. After doing this final step, you are done to run your application with ``.env`` credentials.
+#### Finally, copy below lines of ``prepareTransactionPayload($payload)`` method and replace the code of this method into ``Shurjopay.php`` and save the file. After doing this final step , you are done to run your application with ``.env`` credentials.
 ```
 public function prepareTransactionPayload($payload)
 {
@@ -231,7 +229,7 @@ return json_encode(
 ```
 ### Can I set merchant-credentials of ``.env`` as pacakage-configuration file ?
 Yes ! you can. For implementing this kind of thing , kindly follow bellow things.
-#### Firstly , create a ``config`` folder under ``vendor/shurjomukhi/shurjopay-plugin-php/src/`` this directory and create a ``shurjopayConfig.php`` file under ``vendor/shurjomukhi/shurjopay-plugin-php/src/config`` folder. Then copy below line of codes and paste these into newly created ``shurjopayConfig.php`` file.
+#### Firstly , create a ``config`` folder under ``vendor/shurjomukhi/shurjopay-plugin-php/src/`` this directory and create a ``shurjopayConfig.php`` file under ``vendor/shurjomukhi/shurjopay-plugin-php/src/config`` folder. Then , copy below line of codes and paste these into newly created ``shurjopayConfig.php`` file.
 ```
 <?php
 
@@ -243,12 +241,12 @@ return [
   'SHURJOPAY_API' => env(SHURJOPAY_API)',
 ];
 ```
-#### Secondly , in ``register()`` method of your ``ShurjopayServiceProvider`` put below line kindly.
+#### Secondly , in ``register()`` method of your ``ShurjopayServiceProvider`` put below lines kindly.
 ```
         /*'ShurjopayConfig' is a key for accessing value as config('ShurjopayConfig.SP_USERNAME') in controller */
         $this->mergeConfigFrom(__DIR__.'/../config/shurjopayConfig.php', 'ShurjopayConfig');  
 ```
-#### Thirdly , in ``boot()`` method of your ``ShurjopayServiceProvider`` put below line kindly.
+#### Thirdly , in ``boot()`` method of your ``ShurjopayServiceProvider`` put below lines kindly.
 ```
   # for exporting config file
         if ($this->app->runningInConsole())
@@ -277,8 +275,7 @@ public function __construct()
         $this->verification_url = config('ShurjopayConfig.SHURJOPAY_API'). "api/verification";
     }
 ```
-#### After that , copy below lines of ``authenticate()`` method and replace the code of this method
-into ``Shurjopay.php`` .
+#### After that , copy below lines of ``authenticate()`` method and replace the code of this method into ``Shurjopay.php`` .
 
 ```
 public function authenticate()
@@ -345,7 +342,7 @@ return json_encode(
         );
     }
 ```
-remember to save the file kindly. For [more information](https://laravelpackage.com/07-configuration-files.html#merging-into-the-existing-configuration).
+Remember to save the file kindly. For [more information](https://laravelpackage.com/07-configuration-files.html#merging-into-the-existing-configuration).
 
 ### Can I customize ``shurjoPay-plugin.log`` file's path?
 Yes ! , you can . By default ``sp-plugin-php`` provide logging file in application's ``public`` folder. If you want our ``shurjoPay-plugin.log`` file into laravel's default log-location then kindly remove 
