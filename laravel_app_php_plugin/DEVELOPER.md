@@ -51,7 +51,11 @@ composer update
 ```
 php artisan make:provider ShurjopayServiceProvider
 ```
-Avobe command will create a service provider under ``app/Http/Providers`` folder. In this directory, you will find ``ShurjopayServiceProvider.php`` file. Now , open that file and you will see a method named as ``register()`` .
+Avobe command will create a service provider under ``app/Http/Providers`` folder. In this directory, you will find ``ShurjopayServiceProvider.php`` file.  Now , open that file and replace your service provider's namespace as below : 
+```
+namespace ShurjopayPlugin;
+```
+Then , you will see a method named as ``register()`` .
 Inside this method's body , please put below line and save the file .
 
 ```
@@ -62,6 +66,10 @@ Next, open your application's ``config`` folder and then click on ``app.php`` fi
 
 ```
 ShurjopayPlugin\ShurjopayServiceProvider::class,
+```
+You should run ,
+```
+composer dump-autoload
 ```
 #### Step-3: Integrating controller setup :-
 Use below namespaces in your controller .
