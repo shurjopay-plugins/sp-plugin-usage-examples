@@ -57,9 +57,9 @@ public class ExampleAppHome extends JFrame {
 		J_FRAME = new ExampleAppHome();
 		J_FRAME.setVisible(true);
 		J_FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		J_FRAME.setBounds(200, 200, 800, 600);
+		J_FRAME.setBounds(300, 300, 800, 600);
 		J_FRAME.setLocationRelativeTo(null);
-		J_FRAME.setTitle("Payment Window");
+		J_FRAME.setTitle("Java Swing Application : Payment Window");
 	}
 
 	/**
@@ -69,15 +69,16 @@ public class ExampleAppHome extends JFrame {
 	private void initComponents() {
 
 		container = this.getContentPane();
-		container.setBackground(Color.gray);
+		container.setBackground(Color.BLUE);
 		container.setLayout(null);
+		container.setPreferredSize(getMaximumSize());
 
 		customFont = new Font("Arial", Font.BOLD, 18);
 
 		img = new ImageIcon(this.getClass().getResource("homePageImage.jpg"));
 		imgLabel = new JLabel(img, JLabel.CENTER);
 		imgLabel.setLayout(new FlowLayout());
-		imgLabel.setBounds(50, 50, img.getIconWidth(), 300);
+		imgLabel.setBounds(80, 80, img.getIconWidth(), 300);
 
 		orderIdLabel = new JLabel("Payment id");
 		orderIdLabel.setBounds(400, 200, 400, 50);
@@ -85,13 +86,13 @@ public class ExampleAppHome extends JFrame {
 		orderIdLabel.setForeground(Color.green);
 		orderIdLabel.setVisible(true);
 
-		jLabel = new JLabel("Please Enter Payment amount : ");
+		jLabel = new JLabel("Please Enter Payment amount :  ");
 		jLabel.setBounds(50, 400, 300, 50);
 		jLabel.setFont(customFont);
-		jLabel.setForeground(Color.red);
+		jLabel.setForeground(Color.white);
 		jLabel.setOpaque(true);
-		jLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
-		jLabel.setBackground(Color.BLUE);
+		jLabel.setHorizontalAlignment((int) MAXIMIZED_HORIZ);
+		jLabel.setBackground(null);
 
 		amountTextField = new JTextField();
 		amountTextField.setBounds(400, 400, 300, 50);
@@ -112,7 +113,7 @@ public class ExampleAppHome extends JFrame {
 				resetView();
 			}
 		});
-		payButton = new JButton("Pay");
+		payButton = new JButton("Order	");
 		payButton.setBounds(600, 500, 100, 30);
 		payButton.setForeground(Color.blue);
 		payButton.setFont(customFont);
@@ -137,7 +138,7 @@ public class ExampleAppHome extends JFrame {
 			}
 
 		});
-		//container.add(orderIdLabel);
+//		container.add(orderIdLabel);
 		container.add(imgLabel);
 		container.add(jLabel);
 		container.add(amountTextField);
@@ -149,8 +150,9 @@ public class ExampleAppHome extends JFrame {
 
 	/** This method reset UI and get it ready for new payment operation */
 	private void resetView() {
-		imgLabel.setBounds(50, 50, img.getIconWidth(), 300);
-		container.remove(orderIdLabel);
+		imgLabel.setBounds(80, 80, img.getIconWidth(), 300);
+		//container.remove(orderIdLabel);
+		orderIdLabel.setVisible(false);
 		verifyButton.setVisible(false);
 		amountTextField.setText("");
 	}
@@ -173,9 +175,11 @@ public class ExampleAppHome extends JFrame {
 					PaymentInfo paymentInfo = new PaymentInfo();
 					paymentInfo.setAmount(Double.parseDouble(amountTextField.getText().trim()));
 					paymentRes = paymentService.makePayment(paymentInfo);
-					JOptionPane.showMessageDialog(null, "Payment Successfull");
+					JOptionPane.showMessageDialog(null, "Order Successfull");
 					imgLabel.setBounds(50, 50, 300, 300);
+					orderIdLabel.setVisible(true);
 					orderIdLabel.setText("Order Id = " + paymentRes.getSpTxnId());
+					orderIdLabel.setForeground(Color.yellow);
 					verifyButton.setVisible(true);
 					container.add(orderIdLabel);
 					container.revalidate();
@@ -197,11 +201,13 @@ public class ExampleAppHome extends JFrame {
 	private void verifyOrder() {
 		try {
 			paymentService.verification(paymentRes);
-			orderIdLabel.setText(paymentRes.getSpTxnId() + " verification Success");
+			orderIdLabel.setVisible(true);
+			orderIdLabel.setText(paymentRes.getSpTxnId() + " Paid!");
 			orderIdLabel.setForeground(Color.green);
 		} catch (Exception e2) {
 			e2.printStackTrace();
-			orderIdLabel.setText(paymentRes.getSpTxnId() + " Verification failed");
+			orderIdLabel.setVisible(true);
+			orderIdLabel.setText(paymentRes.getSpTxnId() + " Unpaid");
 			orderIdLabel.setForeground(Color.red);
 		}
 	}
