@@ -1,12 +1,6 @@
 <?php
-
-use ShurjopayPlugin\PaymentRequest;
 use ShurjopayPlugin\Shurjopay;
-
-
-require_once('src/Shurjopay.php');
-require_once('src/PaymentRequest.php');
-
+use ShurjopayPlugin\PaymentRequest;
 /**
  *
  * PHP Plug-in service to provide shurjoPay get way services.
@@ -15,6 +9,9 @@ require_once('src/PaymentRequest.php');
  * @since 2022-10-15
  */
 
+
+require_once 'src/Shurjopay.php';
+require_once 'src/PaymentRequest.php';
 
 
 $amount = (float)$_POST['pamount'];

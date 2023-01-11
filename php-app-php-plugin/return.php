@@ -8,7 +8,6 @@ use ShurjopayPlugin\Shurjopay;
  * @since 2022-10-15
  */
 require_once 'src/Shurjopay.php';
-
 $sp_instance = new Shurjopay();
 $response_data = (object)array(
     'Status' => 'No data found'
