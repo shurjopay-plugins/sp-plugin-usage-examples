@@ -6,6 +6,7 @@
 </p>
 
 ## How to run laravel-app-php-plugin?
-Please, follow ``DEVELOPER.md`` file except "step-1" to run this usage project.
+Please, follow ``DEVELOPER.md`` file  to run this usage project except "step-1" and add ``.env`` file if it doesn't exist.
+
 
 ***Thanks***
