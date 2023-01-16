@@ -1,10 +1,10 @@
 {
     "name": "shurjomukhi/shurjopay-plugin-php",
-    "description": "shurjopay is a online payment gateway and easy payment solution",
+    "description": "shurjoPay is a online payment gateway and easy payment solution",
     "type": "library",
     "version": "2.1.0",
     "license": "MIT",
-    "keywords": ["shurjopay-payment-gateway", "shurjopay-PHP-package","shurjopay-PHP","PHP-shurjopay"],
+    "keywords": ["php","laravel","shurjoPay","shurjopay","shurjomukhi","shurjopay-plugin","payment-gateway","payments","codeigniter","symphony","sp-plugin-php","sp-plugin-laravel","Shurjopay"],
     "autoload": {
         "psr-4": {
             "ShurjopayPlugin\\": "src/"
@@ -12,8 +12,19 @@
     },
     "authors": [
         {
-            "name": "Shurjomukhi Ltd"
+            "name": "Shurjomukhi Ltd",
+            "email": "plugindev@shurjomukhi.com.bd"
+        },
+        {
+            "name": "Md Wali Mosnad Ayshik",
+            "email": "ayshik.wali@shurjomukhisolutions.com.bd",
+            "role": "Software Engineer"
+        },
+        {
+            "name": "Rayhan Khan Ridoy",
+            "email": "redoy@shurjomukhisolutions.com.bd",
+            "role": "Software Engineer"
         }
-    ],
+     ],
     "require": {}
 }
