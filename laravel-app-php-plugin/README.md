@@ -46,11 +46,7 @@ Then , please copy below command line and run on your project's terminal. By run
 ```
 composer update
 ```
-#### Step-2: Kindly , open ``app/Providers/AppServiceProvider.php`` file and put below line into ``register()`` method for registering the ``ShurjopayPlugin\Shurjopay`` class.
-```
-$this->app->make('ShurjopayPlugin\Shurjopay');
-```
-#### Step-3: Ready to run but make sure you have ``.env`` file. If there is no ``.env`` then please make a ``.env`` from ``.env.example`` by below command.
+#### Step-2: Ready to run but make sure you have ``.env`` file. If there is no ``.env`` then please make a ``.env`` from ``.env.example`` by below command.
 ```
 cp .env.example .env
 ```
