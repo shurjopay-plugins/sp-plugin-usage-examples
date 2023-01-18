@@ -214,7 +214,7 @@ class Shurjopay
         return null;
     }
 
-     
+
     /**
      * This function is used to create log and make directory if not exist.
      * @param  mixed $log_msg
