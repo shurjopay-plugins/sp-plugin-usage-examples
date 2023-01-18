@@ -46,7 +46,7 @@ Then , please copy below command line and run on your project's terminal. By run
 ```
 composer update
 ```
-#### Step-2: Kindly open ``app/Providers/AppServiceProvider.php`` file and put below line into ``register()`` method for registering the ``ShurjopayPlugin\Shurjopay`` class.
+#### Step-2: Kindly , open ``app/Providers/AppServiceProvider.php`` file and put below line into ``register()`` method for registering the ``ShurjopayPlugin\Shurjopay`` class.
 ```
 $this->app->make('ShurjopayPlugin\Shurjopay');
 ```
@@ -57,7 +57,7 @@ Now application is ready to work. Just give another command in terminal
 php artisan serve
 ```
 #### References
- Please see our [sample integration](https://github.com/shurjopay-plugins/sp-plugin-usage-examples/tree/dev/laravel-app-php-plugin-refactor-code) project which will give you some idea and help you to integrate our package.
+ Please see our [sample integration](https://github.com/shurjopay-plugins/sp-plugin-usage-examples/tree/dev/laravel-app-php-plugin-for-refactor-code-branch) project which will give you some idea and help you to integrate our package.
 
 #### License
 This code is under the [MIT open source License](http://www.opensource.org/licenses/mit-license.php).
