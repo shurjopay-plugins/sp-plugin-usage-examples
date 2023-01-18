@@ -57,7 +57,7 @@ Now application is ready to work. Just give another command in terminal
 php artisan serve
 ```
 #### References
- Please see our [sample integration](https://github.com/shurjopay-plugins/sp-plugin-usage-examples/tree/dev/laravel-app-php-plugin-for-refactor-code-branch) project which will give you some idea and help you to integrate our package.
+ Please see our [sample integration](https://github.com/shurjopay-plugins/sp-plugin-usage-examples/tree/dev/laravel-app-php-plugin-for-refactor-code--branch) project which will give you some idea and help you to integrate our package.
 
 #### License
 This code is under the [MIT open source License](http://www.opensource.org/licenses/mit-license.php).
