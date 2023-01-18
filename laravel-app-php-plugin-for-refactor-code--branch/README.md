@@ -50,8 +50,7 @@ composer update
 ```
 $this->app->make('ShurjopayPlugin\Shurjopay');
 ```
-#### Step-3: Ready to run but make sure you have ``.env`` file. If there is no ``.env`` then please make a ``.env`` from ``.env.example`` by below command
-.
+#### Step-3: Ready to run but make sure you have ``.env`` file. If there is no ``.env`` then please make a ``.env`` from ``.env.example`` by below command.
 ```
 cp .env.example .env
 ```
