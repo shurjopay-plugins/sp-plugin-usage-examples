@@ -13,8 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+//        $this->app->make('ShurjopayPlugin\Shurjopay');
     }
+PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in HelloWorld.php on line 2
+
 
     /**
      * Bootstrap any application services.
