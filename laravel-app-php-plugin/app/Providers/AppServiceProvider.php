@@ -15,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
     {
 
     }
-PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in HelloWorld.php on line 2
 
 
     /**
