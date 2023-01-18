@@ -1,5 +1,7 @@
 <?php
+
 namespace ShurjopayPlugin;
+
 /**
  *
  * PHP Plug-in service to provide shurjoPay get way services.
@@ -7,13 +9,14 @@ namespace ShurjopayPlugin;
  * @author Md Wali Mosnad Ayshik
  * @since 2022-10-15
  */
-/**
- * Prepare a method for checking internet connection from client-side
- *
- * @return bool $is_conn
- */
 class ShurjopayValidation
 {
+
+    /**
+     * Prepare a method for checking internet connection from client-side
+     *
+     * @return bool $is_conn
+     */
     function checkInternetConnection()
     {
         $connected = @fsockopen('www.google.com', 80);
@@ -37,47 +40,46 @@ class ShurjopayValidation
     {
         $payload_data = (json_decode($payload_data));
 
-        return (
-            $this->emptyCheck(
-                'Currency',
-                $payload_data->currency
-            ) && $this->emptyCheck(
-                'Return Url',
-                $payload_data->return_url
-            ) && $this->emptyCheck(
-                'Amount',
-                $payload_data->amount
-            ) && $this->emptyCheck(
-                'Discount Amount',
-                $payload_data->discsount_amount
-            ) && $this->emptyCheck(
-                'Discount percentage',
-                $payload_data->disc_percent
-            ) && $this->emptyCheck(
-                'Customer Name',
-                $payload_data->customer_name
-            ) && $this->emptyCheck(
-                'Customer Phone',
-                $payload_data->customer_phone
-            ) && $this->emptyCheck(
-                'Customer Email',
-                $payload_data->customer_email
-            ) && $this->emptyCheck(
-                'Customer Address',
-                $payload_data->customer_address
-            ) && $this->emptyCheck(
-                'Customer City',
-                $payload_data->customer_city
-            ) && $this->emptyCheck(
-                'Customer State',
-                $payload_data->customer_state
-            ) && $this->emptyCheck(
-                'Customer Postcode',
-                $payload_data->customer_postcode
-            ) && $this->emptyCheck(
-                'Customer Country',
-                $payload_data->customer_country
-            ) && $this->emailCheck($payload_data->customer_email) && $this->phoneCheck($payload_data->customer_phone)
+        return ($this->emptyCheck(
+            'Currency',
+            $payload_data->currency
+        ) && $this->emptyCheck(
+            'Return Url',
+            $payload_data->return_url
+        ) && $this->emptyCheck(
+            'Amount',
+            $payload_data->amount
+        ) && $this->emptyCheck(
+            'Discount Amount',
+            $payload_data->discsount_amount
+        ) && $this->emptyCheck(
+            'Discount percentage',
+            $payload_data->disc_percent
+        ) && $this->emptyCheck(
+            'Customer Name',
+            $payload_data->customer_name
+        ) && $this->emptyCheck(
+            'Customer Phone',
+            $payload_data->customer_phone
+        ) && $this->emptyCheck(
+            'Customer Email',
+            $payload_data->customer_email
+        ) && $this->emptyCheck(
+            'Customer Address',
+            $payload_data->customer_address
+        ) && $this->emptyCheck(
+            'Customer City',
+            $payload_data->customer_city
+        ) && $this->emptyCheck(
+            'Customer State',
+            $payload_data->customer_state
+        ) && $this->emptyCheck(
+            'Customer Postcode',
+            $payload_data->customer_postcode
+        ) && $this->emptyCheck(
+            'Customer Country',
+            $payload_data->customer_country
+        ) && $this->emailCheck($payload_data->customer_email) && $this->phoneCheck($payload_data->customer_phone)
         );
     }
 
@@ -85,18 +87,17 @@ class ShurjopayValidation
     /**
      * Checks whether a data item is null or empty.
      *
-     * @param mixed $type
+     * @param mixed $attr
      * @param mixed $data
      * @return void
      */
-    function emptyCheck($type, $data)
+    function emptyCheck($attr, $data)
     {
-
-        if ($data == null || $data == "") {
-            print_r("$type is null or empty");
-        } else {
-            return true;
+        if (!isset($data) || empty($data)) {
+            if ($data == 0) return true;
+            print_r("$attr is null or empty");
         }
+        return true;
     }
 
     /**
@@ -127,4 +128,3 @@ class ShurjopayValidation
         }
     }
 }
-?>
