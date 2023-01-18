@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use ShurjopayPlugin\Shurjopay;
+use ShurjopayPlugin\ShurjopayConfig;
 use ShurjopayPlugin\ShurjopayEnvReader;
 use ShurjopayPlugin\PaymentRequest;
 use Illuminate\Http\Request;
@@ -12,10 +13,6 @@ class ShurjopayControllers extends Controller
     public $conf;
     public function make_payment_request(){
 
-        $env= new ShurjopayEnvReader('/home/shurjoMukhi/git/shurjopay_integ_php_laravel_feature_branch/.env');
-        $this->conf = $env->getConfig();
-
-        $sp_instance = new Shurjopay($this->conf);
         $request = new PaymentRequest();
 
         $request->currency = 'BDT';
@@ -40,8 +37,20 @@ class ShurjopayControllers extends Controller
         $request->value3 = 'value3';
         $request->value4 = 'value4';
 
+        $sp_instance = new Shurjopay($this->getShurjopayConfig());
         $sp_instance->makePayment($request);
+    }
 
+    private function getShurjopayConfig() {
+        $obj = new ShurjopayConfig();
+        $obj->username = env('SP_USERNAME');
+        $obj->password = env('SP_PASSWORD');
+        $obj->order_prefix = env('SP_PREFIX');
+        $obj->api_endpoint = env('SHURJOPAY_API');
+        $obj->callback_url = env('SP_CALLBACK');
+        $obj->log_path = env('SP_LOG_LOCATION', '/tmp/');
+        $obj->ssl_verifypeer = env('CURLOPT_SSL_VERIFYPEER', 1);
+        return $obj;
     }
 
     public function verify_payment(Request $request){
