@@ -1,4 +1,6 @@
 <?php
+use ShurjopayPlugin\Shurjopay;
+use ShurjopayPlugin\ShurjopayEnvReader;
 /**
  *
  * PHP Plug-in service to provide shurjoPay get way services.
@@ -6,8 +8,15 @@
  * @author Md Wali Mosnad Ayshik
  * @since 2022-10-15
  */
-require_once 'ShurjopayPlugin.php';
-$sp_instance = new ShurjopayPlugin();
+require_once __DIR__ . '/src/Shurjopay.php';
+require_once __DIR__ . '/src/ShurjopayEnvReader.php';
+
+$env = new ShurjopayEnvReader(__DIR__ . '/_env');
+$conf = $env->getConfig();
+
+$sp_instance = new Shurjopay($conf);
+
+
 $response_data = (object)array(
     'Status' => 'No data found'
 );
