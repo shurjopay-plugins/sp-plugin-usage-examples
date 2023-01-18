@@ -164,7 +164,7 @@ return [
         /*
          * Package Service Providers...
          */
-        // ShurjopayPlugin\ShurjopayServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

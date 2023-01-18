@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use ShurjopayPlugin\Shurjopay;
+use ShurjopayPlugin\ShurjopayConfig;
+use ShurjopayPlugin\ShurjopayEnvReader;
 use ShurjopayPlugin\PaymentRequest;
 use Illuminate\Http\Request;
 
 class ShurjopayControllers extends Controller
 {
+    public $conf;
     public function make_payment_request(){
 
-        $sp_instance = new Shurjopay();
         $request = new PaymentRequest();
 
         $request->currency = 'BDT';
@@ -35,13 +37,25 @@ class ShurjopayControllers extends Controller
         $request->value3 = 'value3';
         $request->value4 = 'value4';
 
+        $sp_instance = new Shurjopay($this->getShurjopayConfig());
         $sp_instance->makePayment($request);
+    }
 
+    private function getShurjopayConfig() {
+        $obj = new ShurjopayConfig();
+        $obj->username = env('SP_USERNAME');
+        $obj->password = env('SP_PASSWORD');
+        $obj->order_prefix = env('SP_PREFIX');
+        $obj->api_endpoint = env('SHURJOPAY_API');
+        $obj->callback_url = env('SP_CALLBACK');
+        $obj->log_path = env('SP_LOG_LOCATION', '/tmp/');
+        $obj->ssl_verifypeer = env('CURLOPT_SSL_VERIFYPEER', 1);
+        return $obj;
     }
 
     public function verify_payment(Request $request){
         $sp_order_id= $request->order_id;
-        $sp_instance = new Shurjopay();
+        $sp_instance = new Shurjopay($this->conf);
         return $sp_instance->verifyPayment($sp_order_id);
     }
 }
