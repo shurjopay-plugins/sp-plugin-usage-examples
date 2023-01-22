@@ -10,7 +10,7 @@
  -->
  
 
-# ![image](https://user-images.githubusercontent.com/57352037/170198396-932692aa-3354-4cf0-abc1-2b8ef43a6de3.png) Include ``sp-plugin-php`` into laravel application
+# ![image](https://user-images.githubusercontent.com/57352037/170198396-932692aa-3354-4cf0-abc1-2b8ef43a6de3.png) How to run this project?
 [![Test Status](https://github.com/rust-random/rand/workflows/Tests/badge.svg?event=push)]()
 [![Stable](https://img.shields.io/badge/Stable-v2.1.0-green)]()
 [![License](https://img.shields.io/badge/License-MIT-blue)]()
@@ -23,7 +23,6 @@ Official documentation for shurjoPay plugin developers to connect with [**_shurj
 
 This document is intended for the developers and technical personnel who want to integrate the shurjoPay online payment gateway by sp-plugin-php in laravel application.
 
-# How to use sp-plugin-php package in laravel ?
 To integrate the shurjoPay Payment Gateway using ``sp-plugin-php``, kindly do the following tasks sequentially.
 
 #### Step-1: Install the package inside your project environment.
@@ -46,11 +45,7 @@ Then , please copy below command line and run on your project's terminal. By run
 ```
 composer update
 ```
-#### Step-2: Kindly , open ``app/Providers/AppServiceProvider.php`` file and put below line into ``register()`` method for registering the ``ShurjopayPlugin\Shurjopay`` class.
-```
-$this->app->make('ShurjopayPlugin\Shurjopay');
-```
-#### Step-3: Ready to run but make sure you have ``.env`` file. If there is no ``.env`` then please make a ``.env`` from ``.env.example`` by below command.
+#### Step-2: Ready to run but make sure you have ``.env`` file. If there is no ``.env`` then please make a ``.env`` from ``.env.example`` by below command.
 ```
 cp .env.example .env
 ```
