@@ -27,8 +27,11 @@ This document is intended for the developers and technical personnel who want to
 To integrate the shurjoPay Payment Gateway using ``sp-plugin-php``, kindly do the following tasks sequentially.
 
 #### Step-1: Install the package inside your project environment.
-Open your project's ``composer.json`` file . Then copy below line and put it into the body of ``require`` block.
-
+Run below commands ,
+```
+"shurjomukhi/shurjopay-plugin-php":"^0.1.0"
+``` 
+Or , Open your project's ``composer.json`` file . Then copy below line and put it into the body of ``require`` block.
 ```
 "shurjomukhi/shurjopay-plugin-php":"dev-dev"
 ``` 
@@ -46,15 +49,12 @@ Then , please copy below command line and run on your project's terminal. By run
 ```
 composer update
 ```
-#### Step-2: Kindly open ``app/Providers/AppServiceProvider.php`` file and put below line into ``register()`` method for registering the ``ShurjopayPlugin\Shurjopay`` class.
-```
-$this->app->make('ShurjopayPlugin\Shurjopay');
-```
-#### Step-3: Integrating controller setup :-
+#### Step-2: Integrating controller setup :-
 Use below namespaces in your controller .
 
 ```
 use ShurjopayPlugin\Shurjopay;
+use ShurjopayPlugin\ShurjopayConfig;
 use ShurjopayPlugin\PaymentRequest;
 ```
 Now , inside your payment-request making method , please make two instances of ``Shurjopay`` & ``PaymentRequest`` classes.
@@ -62,13 +62,11 @@ Now , inside your payment-request making method , please make two instances of `
 ```
 public function make_payment_request()
 {
-
-        /*Please make two instance of ``Shurjopay`` & ``PaymentRequest`` classes. */
-
-        $sp_instance = new Shurjopay();
+        /* Declearing public variable */
+        public $conf;
+        
+        /* Creating instance and initialize all fields of "PaymentRequest" class. */
         $request = new PaymentRequest();
-
-        /* Initialize all class fields of "PaymentRequest" class. */
 
         $request->currency = 'BDT';
         $request->amount = 100;
@@ -91,39 +89,47 @@ public function make_payment_request()
         $request->value2 = 'value2';
         $request->value3 = 'value3';
         $request->value4 = 'value4';
-
-        /*
-         Call the "makePayment()" method with the instance of "Shurjopay" class and pass 
-         the instance of "PaymentRequest" class as perameter.
-        */
-
+        
+        /* Passing ShurjopayConfig to Shurjopay Constructor*/
+        $sp_instance = new Shurjopay($this->getShurjopayConfig());
+        
+        /* Passing object of PaymentRequest to makePayment() method */
         $sp_instance->makePayment($request);
 
-    }
+        /* initializing object of ShurjopayConfig from .env file */
+        private function getShurjopayConfig() 
+        {
+           $obj = new ShurjopayConfig();
+           $obj->username = env('SP_USERNAME');
+           $obj->password = env('SP_PASSWORD');
+           $obj->order_prefix = env('SP_PREFIX');
+           $obj->api_endpoint = env('SHURJOPAY_API');
+           $obj->callback_url = env('SP_CALLBACK');
+           $obj->log_path = env('SP_LOG_LOCATION');
+           $obj->ssl_verifypeer = env('CURLOPT_SSL_VERIFYPEER', 1);
+           return $obj;
+        }
+
+        /* Payment verification can be done after each transaction with shurjopay_order_id */
+        public function verify_payment(Request $request)
+        {
+           $sp_order_id= $request->order_id;
+           $sp_instance = new Shurjopay($this->conf);
+
+           /*
+            Call the "verifyPayment()" method with the instance of "Shurjopay" class and pass 
+            the "shurjopay_order_id" as perameter.
+           */
+           return $sp_instance->verifyPayment($sp_order_id);
+        }
 ```
-#### Payment verification can be done after each transaction with shurjopay_order_id :-
-
-```
- public function verifyPayment($shurjopay_order_id){
-
-        /* Kindly make instance of "Shurjopay" class.
-        $sp_instance = new Shurjopay();
-
-        /*
-         Call the "verifyPayment()" method with the instance of "Shurjopay" class and pass 
-         the "shurjopay_order_id" as perameter.
-        */
-        return $sp_instance->verifyPayment($shurjopay_order_id);
-    }
-```
-
-
 #### Step-4: Ready to run.
 Now application is ready to work. Just give another command in terminal
 
 ```
 php artisan serve
 ```
+<!--
 # Advance Customization Set-up 
 ### Where will I set merchant credentials ?
 Now , your laravel application is running with ``sp-plugin-php`` and this plugin always taking some merchant credentials to run. These credentials are defined in ``ShurjopayConfig.php`` file and path-directory of this file is ``vendor/shurjomukhi/shurjopay-plugin-php/src/ShurjopayConfig.php`` . If you want to define your merchant-credentials then you will need to change that file's credentials. 
@@ -342,6 +348,7 @@ Yes ! , you can . By default ``sp-plugin-php`` provide logging file in applicati
 /* this SP_LOG_LOCATION will work for only laravel_version 5.1x to 9.0x(or above)"  */
 define('SP_LOG_LOCATION',storage_path('logs/shurjoPay-plugin-log/'), false);
 ```
+-->
 #### References
  Please see our [sample integration](https://github.com/shurjopay-plugins/sp-plugin-usage-examples/tree/dev/laravel-app-laravel-plugin/shurjopay_integ_usage_project_new) project which will give you some idea and help you to integrate our package.
 
@@ -350,4 +357,4 @@ This code is under the [MIT open source License](http://www.opensource.org/licen
 
 #### Please [contact](https://shurjopay.com.bd/#contacts) with shurjoPay team for more detail!
 <hr>
-Copyright ©️2022 shurjoMukhi Limited.
+Copyright ©️2023 shurjoMukhi Limited.
