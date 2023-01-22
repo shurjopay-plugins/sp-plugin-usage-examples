@@ -29,7 +29,7 @@ To integrate the shurjoPay Payment Gateway using ``sp-plugin-php``, kindly do th
 Open your project's ``composer.json`` file . Then copy below line and put it into the body of ``require`` block.
 
 ```
-"shurjomukhi/shurjopay-plugin-php":"dev-refactor-code"
+"shurjomukhi/shurjopay-plugin-php":"dev-dev"
 ``` 
 Next , copy below block of codes and put into "composer.json" 
 ```
