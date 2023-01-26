@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ed5bf0d109069dfaaf40fdcb15a3474",
+    "content-hash": "5303893333c04d7c3ac4537f41b0b763",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1604,7 +1604,7 @@
         },
         {
             "name": "shurjomukhi/shurjopay-plugin-php",
-            "version": "dev-dev",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shurjopay-plugins/sp-plugin-php.git",
@@ -6057,9 +6057,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "shurjomukhi/shurjopay-plugin-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
