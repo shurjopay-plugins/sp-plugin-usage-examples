@@ -3,14 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use ShurjopayPlugin\Shurjopay;
+use ShurjopayPlugin\ShurjopayConfig;
 
-class AppServiceProvider extends ServiceProvider
+class ShurjopayProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
+
     public function register()
     {
         $this->app->bind(Shurjopay::class, function ($app) {
@@ -31,14 +29,4 @@ class AppServiceProvider extends ServiceProvider
         return $conf;
     }
 
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
 }
