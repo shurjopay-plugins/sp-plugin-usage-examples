@@ -11,7 +11,7 @@ class ShurjopayProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind(Shurjopay::class, function ($app) {
+        $this->app->singleton(Shurjopay::class, function ($app) {
             return new Shurjopay($this->getShurjopayConfig());
         });
     }
