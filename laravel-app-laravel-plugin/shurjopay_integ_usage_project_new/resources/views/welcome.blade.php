@@ -204,6 +204,14 @@
                                 :<input type="text" name="shipping_phone_number" value="{{old('shipping_phone_number')}}" placeholder="Enter shipping_phone_number">
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <span> value1 </span>
+                            </td>
+                            <td>
+                                :<input type="text" name="value1" value="{{old('value1')}}" placeholder="Enter value1 (optional)">
+                            </td>
+                        </tr>
 
                     </table>
                     <input type="submit" class="btn btn-success" value="Pay Now" style="margin-top:10px;">
