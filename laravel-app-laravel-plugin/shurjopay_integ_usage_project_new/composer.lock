@@ -2890,12 +2890,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/shurjopay-plugins/sp-plugin-laravel.git",
-                "reference": "2acfa31dd6595adb148727b522bcad5ff7fdc207"
+                "reference": "b51bc77cec9eb36983a95d621ec414d7c1cbd84b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-laravel/zipball/2acfa31dd6595adb148727b522bcad5ff7fdc207",
-                "reference": "2acfa31dd6595adb148727b522bcad5ff7fdc207",
+                "url": "https://api.github.com/repos/shurjopay-plugins/sp-plugin-laravel/zipball/b51bc77cec9eb36983a95d621ec414d7c1cbd84b",
+                "reference": "b51bc77cec9eb36983a95d621ec414d7c1cbd84b",
                 "shasum": ""
             },
             "default-branch": true,
@@ -2942,7 +2942,7 @@
                 "source": "https://github.com/shurjopay-plugins/sp-plugin-laravel/tree/dev",
                 "issues": "https://github.com/shurjopay-plugins/sp-plugin-laravel/issues"
             },
-            "time": "2023-02-01T10:38:34+00:00"
+            "time": "2023-02-01T10:51:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
