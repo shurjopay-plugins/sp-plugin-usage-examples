@@ -1,0 +1,16 @@
+PODS:
+  - ShurjopaySdk (1.1.0)
+
+DEPENDENCIES:
+  - ShurjopaySdk
+
+SPEC REPOS:
+  trunk:
+    - ShurjopaySdk
+
+SPEC CHECKSUMS:
+  ShurjopaySdk: c579747b4196be1ddf6fa1870787206e4dbf54c6
+
+PODFILE CHECKSUM: 0fc366f01389aaada2468a04450790c538cb3e60
+
+COCOAPODS: 1.11.3

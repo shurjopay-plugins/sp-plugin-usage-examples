@@ -1,0 +1,672 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05590094585BCFB8CA52EA60676D66E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		0B99D6DC6685E4EAD9522ACDC36BB124 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D526346737A8DCEC969C1194CA45A78 /* RequestData.swift */; };
+		13F59353040BA5AF2EB68B3FEBF4DBF8 /* UIProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB875BEA2A4BD7E168FB85BEF42C268 /* UIProperty.swift */; };
+		20CE046437F4BA25E77113DD3FD0F5F0 /* CheckoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679720C6D502E56CDE375FC8CD8C441 /* CheckoutData.swift */; };
+		29398915EBB5EAFA4FE34D03D6F77B80 /* ExecuteUrlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06C6D850D886C7B08937AE92BE3DC3C /* ExecuteUrlData.swift */; };
+		2C77E791630125D253582C0C88C47E0F /* Pods-shujoPaySDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08D66B0E1F0F8733919C00C7F96CB4E9 /* Pods-shujoPaySDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		326D7B280DE27D48A130BB368F959C67 /* Pods-shujoPaySDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA6CEC995EDBA081B3450B1B5101B1 /* Pods-shujoPaySDK-dummy.m */; };
+		45B34F23F25EB65E0DAA28F4ABB9378C /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89879C83367BF685DF791F799A9C82B4 /* TransactionData.swift */; };
+		54C933052D3C5299F7D87F63EEF2FE1A /* ShurjopaySdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFA8B6DFBC3C0F2CF9ED5B09A6285 /* ShurjopaySdk.swift */; };
+		5897A250CC2E90BCD210315B5BDDC9EB /* ShurjoPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8F1EA11988D0ECA2A032BF956E224 /* ShurjoPayViewController.swift */; };
+		6ED02939E3E4F3601CB0BDFDDC1D1644 /* ShurjopaySdkPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D557CF68A93C92ED5D2C9218B346CF /* ShurjopaySdkPlugin.swift */; };
+		722611089C7E58D388CEC9FEE7BED7B2 /* ProProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A58796B4C545D7D300E8AACFE9B93 /* ProProgressBar.swift */; };
+		76A12D03DBA2DDC3DE63B9BF6095B962 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B5C0BB27FAACC83ECC85D2092647B /* ApiClient.swift */; };
+		7F8A4F55F1EFAAC57AD1404080CD8713 /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830F076B45BDAE4D932A546D013838EB /* TokenData.swift */; };
+		8A86DDFBB22607B2C97A6E37183F73DE /* ShurjopaySdk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 976A7566C5EFFB563B81214657DD4CAC /* ShurjopaySdk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		997724079FA82B497351114920329B44 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E70C98CF1BED5C1EC592BE35BD23B8 /* AlertService.swift */; };
+		AE21448C3348279DA5E6B8A3039BDCB0 /* NetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F5764C06BCC8687D3DC8B841815209 /* NetConnection.swift */; };
+		B0172498C1A618348164F3CBC8C1E67E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		BA132572765E2AE454004D001082874E /* ErrorSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52990404D16A6F0B22E6753CE2A84E7 /* ErrorSuccess.swift */; };
+		CB11CF7B3A463CA3205A85601B9D3DC7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14396809BCC1425F2F2304A0CFC324 /* AppConstants.swift */; };
+		CC96E38EC33DF02D9C4D459B679ACF50 /* ShurjopaySdk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B4171ADC2801E775FCF5B8A2297C7985 /* ShurjopaySdk-dummy.m */; };
+		D623C97313A008C6A7F6AC847CE1FFC9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E84DFDCC79BCA1F4ABEEE373B8CEB /* Utils.swift */; };
+		EBA46F9E064DC39A20B4718915D1B27F /* ApiInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C820EE2BD47BA4396509F850A5655 /* ApiInterface.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33903B42198BC000FD28586EA78A5D39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 364DB75A4707057DFE5D505ED699C5DB;
+			remoteInfo = ShurjopaySdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08D66B0E1F0F8733919C00C7F96CB4E9 /* Pods-shujoPaySDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-shujoPaySDK-umbrella.h"; sourceTree = "<group>"; };
+		0CB9671E5CACAA1C5E5D1C9220EEECD0 /* ShurjopaySdk */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ShurjopaySdk; path = ShurjopaySdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		123C820EE2BD47BA4396509F850A5655 /* ApiInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApiInterface.swift; path = ShurjopaySdk/Classes/src/sdk/ApiInterface.swift; sourceTree = "<group>"; };
+		13E70C98CF1BED5C1EC592BE35BD23B8 /* AlertService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertService.swift; path = ShurjopaySdk/Classes/src/utils/AlertService.swift; sourceTree = "<group>"; };
+		15D557CF68A93C92ED5D2C9218B346CF /* ShurjopaySdkPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShurjopaySdkPlugin.swift; path = ShurjopaySdk/Classes/src/sdk/ShurjopaySdkPlugin.swift; sourceTree = "<group>"; };
+		2586375882D6409002B6FC49F9C4933E /* Pods-shujoPaySDK-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shujoPaySDK-acknowledgements.plist"; sourceTree = "<group>"; };
+		271E84DFDCC79BCA1F4ABEEE373B8CEB /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = ShurjopaySdk/Classes/src/utils/Utils.swift; sourceTree = "<group>"; };
+		395A58796B4C545D7D300E8AACFE9B93 /* ProProgressBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProProgressBar.swift; path = ShurjopaySdk/Classes/src/utils/ProProgressBar.swift; sourceTree = "<group>"; };
+		3EB875BEA2A4BD7E168FB85BEF42C268 /* UIProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIProperty.swift; path = ShurjopaySdk/Classes/src/model/UIProperty.swift; sourceTree = "<group>"; };
+		3F2FFA8B6DFBC3C0F2CF9ED5B09A6285 /* ShurjopaySdk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShurjopaySdk.swift; path = ShurjopaySdk/Classes/src/sdk/ShurjopaySdk.swift; sourceTree = "<group>"; };
+		497789444F01FDE2109EB3EF50A4DE12 /* Pods-shujoPaySDK-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-shujoPaySDK-frameworks.sh"; sourceTree = "<group>"; };
+		542153B25CBFB9500C9DACB5CE399986 /* Pods-shujoPaySDK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-shujoPaySDK"; path = Pods_shujoPaySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8C3B32CF2287105AD547A29E638C32 /* ShurjopaySdk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ShurjopaySdk-prefix.pch"; sourceTree = "<group>"; };
+		625057710DDB23FAABC5B5605AB4F1E3 /* Pods-shujoPaySDK-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-shujoPaySDK-acknowledgements.markdown"; sourceTree = "<group>"; };
+		66BA6CEC995EDBA081B3450B1B5101B1 /* Pods-shujoPaySDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-shujoPaySDK-dummy.m"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7D26431D43D2735A142CAAC9A36463F2 /* ShurjopaySdk-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ShurjopaySdk-Info.plist"; sourceTree = "<group>"; };
+		830F076B45BDAE4D932A546D013838EB /* TokenData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenData.swift; path = ShurjopaySdk/Classes/src/model/TokenData.swift; sourceTree = "<group>"; };
+		89879C83367BF685DF791F799A9C82B4 /* TransactionData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionData.swift; path = ShurjopaySdk/Classes/src/model/TransactionData.swift; sourceTree = "<group>"; };
+		90CBA2F9DF7F15D1DF60FFCE0488182B /* Pods-shujoPaySDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-shujoPaySDK.modulemap"; sourceTree = "<group>"; };
+		976A7566C5EFFB563B81214657DD4CAC /* ShurjopaySdk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ShurjopaySdk-umbrella.h"; sourceTree = "<group>"; };
+		9D526346737A8DCEC969C1194CA45A78 /* RequestData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestData.swift; path = ShurjopaySdk/Classes/src/model/RequestData.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B2CFDE08B795FC63EA3A4AB128801D15 /* ShurjopaySdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ShurjopaySdk.release.xcconfig; sourceTree = "<group>"; };
+		B4171ADC2801E775FCF5B8A2297C7985 /* ShurjopaySdk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ShurjopaySdk-dummy.m"; sourceTree = "<group>"; };
+		BD14396809BCC1425F2F2304A0CFC324 /* AppConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppConstants.swift; path = ShurjopaySdk/Classes/src/utils/AppConstants.swift; sourceTree = "<group>"; };
+		BE5B5C0BB27FAACC83ECC85D2092647B /* ApiClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = ShurjopaySdk/Classes/src/sdk/ApiClient.swift; sourceTree = "<group>"; };
+		C0B8F1EA11988D0ECA2A032BF956E224 /* ShurjoPayViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShurjoPayViewController.swift; path = ShurjopaySdk/Classes/src/sdk/ShurjoPayViewController.swift; sourceTree = "<group>"; };
+		C9CACD3414D4E7F70D37C8C8517220D7 /* Pods-shujoPaySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shujoPaySDK.debug.xcconfig"; sourceTree = "<group>"; };
+		CAD4DB17164D46FE4A2E0761059CFCD2 /* ShurjopaySdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ShurjopaySdk.debug.xcconfig; sourceTree = "<group>"; };
+		D0717EA74ED42E7D6A0CFCA4A68A0991 /* Pods-shujoPaySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shujoPaySDK.release.xcconfig"; sourceTree = "<group>"; };
+		D679720C6D502E56CDE375FC8CD8C441 /* CheckoutData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckoutData.swift; path = ShurjopaySdk/Classes/src/model/CheckoutData.swift; sourceTree = "<group>"; };
+		D9F5764C06BCC8687D3DC8B841815209 /* NetConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetConnection.swift; path = ShurjopaySdk/Classes/src/utils/NetConnection.swift; sourceTree = "<group>"; };
+		E06C6D850D886C7B08937AE92BE3DC3C /* ExecuteUrlData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExecuteUrlData.swift; path = ShurjopaySdk/Classes/src/model/ExecuteUrlData.swift; sourceTree = "<group>"; };
+		E52990404D16A6F0B22E6753CE2A84E7 /* ErrorSuccess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ErrorSuccess.swift; path = ShurjopaySdk/Classes/src/model/ErrorSuccess.swift; sourceTree = "<group>"; };
+		F0E9F176D2F519EC03E3EC6F407240B1 /* Pods-shujoPaySDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shujoPaySDK-Info.plist"; sourceTree = "<group>"; };
+		FA4660540D26DFEAAEA9D9775241E60B /* ShurjopaySdk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ShurjopaySdk.modulemap; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43C7EBEDABD23A68E3A19A8CC7EA673A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0172498C1A618348164F3CBC8C1E67E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDFB5E4245411A7EE6D3968567970990 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05590094585BCFB8CA52EA60676D66E7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05D15D8E52AB7F7C77E60D03B2B1C1D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF31297D29FCFCD7603F447A043835BD /* ShurjopaySdk */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0774C11C7E5E2C6DD5CF8B4B5BE06B93 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB239AEE85BFB0DE4095DBC611507EAA /* Pods-shujoPaySDK */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		0C6993864B7E44AEDEAA1B182F0A36A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				542153B25CBFB9500C9DACB5CE399986 /* Pods-shujoPaySDK */,
+				0CB9671E5CACAA1C5E5D1C9220EEECD0 /* ShurjopaySdk */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		BB239AEE85BFB0DE4095DBC611507EAA /* Pods-shujoPaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				90CBA2F9DF7F15D1DF60FFCE0488182B /* Pods-shujoPaySDK.modulemap */,
+				625057710DDB23FAABC5B5605AB4F1E3 /* Pods-shujoPaySDK-acknowledgements.markdown */,
+				2586375882D6409002B6FC49F9C4933E /* Pods-shujoPaySDK-acknowledgements.plist */,
+				66BA6CEC995EDBA081B3450B1B5101B1 /* Pods-shujoPaySDK-dummy.m */,
+				497789444F01FDE2109EB3EF50A4DE12 /* Pods-shujoPaySDK-frameworks.sh */,
+				F0E9F176D2F519EC03E3EC6F407240B1 /* Pods-shujoPaySDK-Info.plist */,
+				08D66B0E1F0F8733919C00C7F96CB4E9 /* Pods-shujoPaySDK-umbrella.h */,
+				C9CACD3414D4E7F70D37C8C8517220D7 /* Pods-shujoPaySDK.debug.xcconfig */,
+				D0717EA74ED42E7D6A0CFCA4A68A0991 /* Pods-shujoPaySDK.release.xcconfig */,
+			);
+			name = "Pods-shujoPaySDK";
+			path = "Target Support Files/Pods-shujoPaySDK";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				05D15D8E52AB7F7C77E60D03B2B1C1D4 /* Pods */,
+				0C6993864B7E44AEDEAA1B182F0A36A8 /* Products */,
+				0774C11C7E5E2C6DD5CF8B4B5BE06B93 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CF31297D29FCFCD7603F447A043835BD /* ShurjopaySdk */ = {
+			isa = PBXGroup;
+			children = (
+				13E70C98CF1BED5C1EC592BE35BD23B8 /* AlertService.swift */,
+				BE5B5C0BB27FAACC83ECC85D2092647B /* ApiClient.swift */,
+				123C820EE2BD47BA4396509F850A5655 /* ApiInterface.swift */,
+				BD14396809BCC1425F2F2304A0CFC324 /* AppConstants.swift */,
+				D679720C6D502E56CDE375FC8CD8C441 /* CheckoutData.swift */,
+				E52990404D16A6F0B22E6753CE2A84E7 /* ErrorSuccess.swift */,
+				E06C6D850D886C7B08937AE92BE3DC3C /* ExecuteUrlData.swift */,
+				D9F5764C06BCC8687D3DC8B841815209 /* NetConnection.swift */,
+				395A58796B4C545D7D300E8AACFE9B93 /* ProProgressBar.swift */,
+				9D526346737A8DCEC969C1194CA45A78 /* RequestData.swift */,
+				3F2FFA8B6DFBC3C0F2CF9ED5B09A6285 /* ShurjopaySdk.swift */,
+				15D557CF68A93C92ED5D2C9218B346CF /* ShurjopaySdkPlugin.swift */,
+				C0B8F1EA11988D0ECA2A032BF956E224 /* ShurjoPayViewController.swift */,
+				830F076B45BDAE4D932A546D013838EB /* TokenData.swift */,
+				89879C83367BF685DF791F799A9C82B4 /* TransactionData.swift */,
+				3EB875BEA2A4BD7E168FB85BEF42C268 /* UIProperty.swift */,
+				271E84DFDCC79BCA1F4ABEEE373B8CEB /* Utils.swift */,
+				FC7A4A94BFD5DC419F95E7E6409EEB77 /* Support Files */,
+			);
+			name = ShurjopaySdk;
+			path = ShurjopaySdk;
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC7A4A94BFD5DC419F95E7E6409EEB77 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA4660540D26DFEAAEA9D9775241E60B /* ShurjopaySdk.modulemap */,
+				B4171ADC2801E775FCF5B8A2297C7985 /* ShurjopaySdk-dummy.m */,
+				7D26431D43D2735A142CAAC9A36463F2 /* ShurjopaySdk-Info.plist */,
+				5C8C3B32CF2287105AD547A29E638C32 /* ShurjopaySdk-prefix.pch */,
+				976A7566C5EFFB563B81214657DD4CAC /* ShurjopaySdk-umbrella.h */,
+				CAD4DB17164D46FE4A2E0761059CFCD2 /* ShurjopaySdk.debug.xcconfig */,
+				B2CFDE08B795FC63EA3A4AB128801D15 /* ShurjopaySdk.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ShurjopaySdk";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		75CDF8EA14EA23A1A2EE69980AD4EA59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C77E791630125D253582C0C88C47E0F /* Pods-shujoPaySDK-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB4BD270335E86B40D10B7F9E1977CB9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A86DDFBB22607B2C97A6E37183F73DE /* ShurjopaySdk-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		364DB75A4707057DFE5D505ED699C5DB /* ShurjopaySdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45D094640E36E972D2D5CF5CD4DD2533 /* Build configuration list for PBXNativeTarget "ShurjopaySdk" */;
+			buildPhases = (
+				CB4BD270335E86B40D10B7F9E1977CB9 /* Headers */,
+				3EA1AC1C5E439529D535B3172226C844 /* Sources */,
+				43C7EBEDABD23A68E3A19A8CC7EA673A /* Frameworks */,
+				C4B1A934431EC9D716BD4BD076652B76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShurjopaySdk;
+			productName = ShurjopaySdk;
+			productReference = 0CB9671E5CACAA1C5E5D1C9220EEECD0 /* ShurjopaySdk */;
+			productType = "com.apple.product-type.framework";
+		};
+		C09B07D2DD46C349ADD08B5ED5C9C030 /* Pods-shujoPaySDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9105C676CF63136B65E5B9D6C355C366 /* Build configuration list for PBXNativeTarget "Pods-shujoPaySDK" */;
+			buildPhases = (
+				75CDF8EA14EA23A1A2EE69980AD4EA59 /* Headers */,
+				5E62627BD3F084BE1CCB0C2EBB356C8D /* Sources */,
+				EDFB5E4245411A7EE6D3968567970990 /* Frameworks */,
+				FCAD972D64F4B6B68686FFA91D193676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2362DDF587249EC8B75C3D9D32E32097 /* PBXTargetDependency */,
+			);
+			name = "Pods-shujoPaySDK";
+			productName = Pods_shujoPaySDK;
+			productReference = 542153B25CBFB9500C9DACB5CE399986 /* Pods-shujoPaySDK */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0C6993864B7E44AEDEAA1B182F0A36A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C09B07D2DD46C349ADD08B5ED5C9C030 /* Pods-shujoPaySDK */,
+				364DB75A4707057DFE5D505ED699C5DB /* ShurjopaySdk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4B1A934431EC9D716BD4BD076652B76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCAD972D64F4B6B68686FFA91D193676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EA1AC1C5E439529D535B3172226C844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				997724079FA82B497351114920329B44 /* AlertService.swift in Sources */,
+				76A12D03DBA2DDC3DE63B9BF6095B962 /* ApiClient.swift in Sources */,
+				EBA46F9E064DC39A20B4718915D1B27F /* ApiInterface.swift in Sources */,
+				CB11CF7B3A463CA3205A85601B9D3DC7 /* AppConstants.swift in Sources */,
+				20CE046437F4BA25E77113DD3FD0F5F0 /* CheckoutData.swift in Sources */,
+				BA132572765E2AE454004D001082874E /* ErrorSuccess.swift in Sources */,
+				29398915EBB5EAFA4FE34D03D6F77B80 /* ExecuteUrlData.swift in Sources */,
+				AE21448C3348279DA5E6B8A3039BDCB0 /* NetConnection.swift in Sources */,
+				722611089C7E58D388CEC9FEE7BED7B2 /* ProProgressBar.swift in Sources */,
+				0B99D6DC6685E4EAD9522ACDC36BB124 /* RequestData.swift in Sources */,
+				54C933052D3C5299F7D87F63EEF2FE1A /* ShurjopaySdk.swift in Sources */,
+				CC96E38EC33DF02D9C4D459B679ACF50 /* ShurjopaySdk-dummy.m in Sources */,
+				6ED02939E3E4F3601CB0BDFDDC1D1644 /* ShurjopaySdkPlugin.swift in Sources */,
+				5897A250CC2E90BCD210315B5BDDC9EB /* ShurjoPayViewController.swift in Sources */,
+				7F8A4F55F1EFAAC57AD1404080CD8713 /* TokenData.swift in Sources */,
+				45B34F23F25EB65E0DAA28F4ABB9378C /* TransactionData.swift in Sources */,
+				13F59353040BA5AF2EB68B3FEBF4DBF8 /* UIProperty.swift in Sources */,
+				D623C97313A008C6A7F6AC847CE1FFC9 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E62627BD3F084BE1CCB0C2EBB356C8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				326D7B280DE27D48A130BB368F959C67 /* Pods-shujoPaySDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2362DDF587249EC8B75C3D9D32E32097 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ShurjopaySdk;
+			target = 364DB75A4707057DFE5D505ED699C5DB /* ShurjopaySdk */;
+			targetProxy = 33903B42198BC000FD28586EA78A5D39 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0FF17994157BA32F48A4EE6863B1A98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0717EA74ED42E7D6A0CFCA4A68A0991 /* Pods-shujoPaySDK.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shujoPaySDK/Pods-shujoPaySDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shujoPaySDK/Pods-shujoPaySDK.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5D762D0DAE2CBEF949974D6D915FBCE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2CFDE08B795FC63EA3A4AB128801D15 /* ShurjopaySdk.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ShurjopaySdk/ShurjopaySdk-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ShurjopaySdk/ShurjopaySdk-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ShurjopaySdk/ShurjopaySdk.modulemap";
+				PRODUCT_MODULE_NAME = ShurjopaySdk;
+				PRODUCT_NAME = ShurjopaySdk;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5FB6EBB3AD2D5778210828F01A3ECAA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9CACD3414D4E7F70D37C8C8517220D7 /* Pods-shujoPaySDK.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shujoPaySDK/Pods-shujoPaySDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shujoPaySDK/Pods-shujoPaySDK.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		92486E5E72E54FAF60E1A7D022C21B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		934ED2B84836A780113D1F63484628B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C093EAC6C87C38D3C241AA371CB75C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAD4DB17164D46FE4A2E0761059CFCD2 /* ShurjopaySdk.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ShurjopaySdk/ShurjopaySdk-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ShurjopaySdk/ShurjopaySdk-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ShurjopaySdk/ShurjopaySdk.modulemap";
+				PRODUCT_MODULE_NAME = ShurjopaySdk;
+				PRODUCT_NAME = ShurjopaySdk;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45D094640E36E972D2D5CF5CD4DD2533 /* Build configuration list for PBXNativeTarget "ShurjopaySdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C093EAC6C87C38D3C241AA371CB75C37 /* Debug */,
+				5D762D0DAE2CBEF949974D6D915FBCE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934ED2B84836A780113D1F63484628B2 /* Debug */,
+				92486E5E72E54FAF60E1A7D022C21B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9105C676CF63136B65E5B9D6C355C366 /* Build configuration list for PBXNativeTarget "Pods-shujoPaySDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FB6EBB3AD2D5778210828F01A3ECAA6 /* Debug */,
+				0FF17994157BA32F48A4EE6863B1A98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
