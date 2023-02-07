@@ -1,0 +1,6 @@
+framework module ShurjopaySdk {
+  umbrella header "ShurjopaySdk-umbrella.h"
+
+  export *
+  module * { export * }
+}
