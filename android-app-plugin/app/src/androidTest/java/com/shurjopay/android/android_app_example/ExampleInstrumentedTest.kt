@@ -1,4 +1,4 @@
-package com.shurjopay.android.android_app_kotlin_plugin
+package com.shurjopay.android.android_app_example
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
