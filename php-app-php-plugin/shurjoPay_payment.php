@@ -1,6 +1,9 @@
 <?php
+
+use ShurjopayPlugin\ShurjopayEnvReader;
 use ShurjopayPlugin\Shurjopay;
 use ShurjopayPlugin\PaymentRequest;
+
 /**
  *
  * PHP Plug-in service to provide shurjoPay get way services.
@@ -10,13 +13,19 @@ use ShurjopayPlugin\PaymentRequest;
  */
 
 
-require_once 'src/Shurjopay.php';
-require_once 'src/PaymentRequest.php';
+ require_once __DIR__ . '/src/ShurjopayEnvReader.php';
+ require_once __DIR__ . '/src/Shurjopay.php';
+ require_once __DIR__ . '/src/PaymentRequest.php';
+
+$env = new ShurjopayEnvReader(__DIR__ . '/_env');
+$conf = $env->getConfig();
 
 
 $amount = (float)$_POST['pamount'];
-$sp_instance = new Shurjopay();
+$sp_instance = new Shurjopay($conf);
+
 $request = new PaymentRequest();
+
 
 $request->currency = 'BDT';
 $request->amount = $amount;
