@@ -23,8 +23,27 @@ $response_data = (object)array(
 
 if ($_REQUEST['order_id'])
 {
-    $shurjopay_order_id = trim($_REQUEST['order_id']);
-    $response_data = json_decode(json_encode($sp_instance->verifyPayment($shurjopay_order_id)));
+  $shurjopay_order_id = trim($_REQUEST['order_id']);
+  $response_data = json_decode(json_encode($sp_instance->verifyPayment($shurjopay_order_id)));
+
+if($response_data[0]->sp_code=='1000')
+{
+  
+$db = new SQLite3('products.db');
+$id =  $shurjopay_order_id;
+$name = 'Product A';
+$price = 10.50;
+$status = 'Paid';
+$insert_stmt = $db->prepare('INSERT INTO products (id, name, price, status) VALUES (:id, :name, :price, :status)');
+$insert_stmt->bindValue(':id', $id, SQLITE3_TEXT);
+$insert_stmt->bindValue(':name', $name, SQLITE3_TEXT);
+$insert_stmt->bindValue(':price', $price, SQLITE3_FLOAT);
+$insert_stmt->bindValue(':status', $status, SQLITE3_TEXT);
+$result=$insert_stmt->execute();
+// close the database connection
+$db->close();
+
+}
 }
 ?>
 <html>
