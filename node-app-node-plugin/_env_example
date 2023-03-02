@@ -1,0 +1,5 @@
+PORT=4000
+SP_CLIENT_ID=sp_sandbox
+SP_CLIENT_SECRET=pyyk97hu&6u6
+SP_CLIENT_KEY_PREFIX=sp
+SP_RETURN_URL=<Your FrontEnd App Url>/response
