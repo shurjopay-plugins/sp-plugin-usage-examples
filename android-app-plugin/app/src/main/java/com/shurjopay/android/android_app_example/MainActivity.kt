@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
+import bd.com.shurjomukhi.v2.model.PaymentReq
+import bd.com.shurjomukhi.v2.model.ShurjopayConfigs
+import bd.com.shurjomukhi.v2.model.ShurjopayException
+import bd.com.shurjomukhi.v2.model.ShurjopaySuccess
+import bd.com.shurjomukhi.v2.payment.PaymentResultListener
+import bd.com.shurjomukhi.v2.payment.Shurjopay
 import com.shurjopay.android.android_app.databinding.ActivityMainBinding
 import com.shurjopay.android.example.utils.Constants.Companion.SHURJOPAY_API
 import com.shurjopay.android.example.utils.Constants.Companion.SP_PASS
 import com.shurjopay.android.example.utils.Constants.Companion.SP_USER
-import sp.plugin.android.v2.model.*
-import sp.plugin.android.v2.payment.PaymentResultListener
-import sp.plugin.android.v2.payment.Shurjopay
+
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
