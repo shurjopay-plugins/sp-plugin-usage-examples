@@ -87,7 +87,6 @@ app.post("/verifypayment", (req, res) => {
       order_id,
       (response_data) => {
         response_data.forEach((data) => {
-          if (data.sp_code == 1000) {
             db.run(
               `INSERT INTO shurjopay (id,order_id,currency,amount,payable_amount,discsount_amount,disc_percent,received_amount,usd_amt,usd_rate,card_holder_name,card_number,phone_no,bank_trx_id,invoice_no,bank_status,customer_order_id,sp_code,sp_message,name,email,address,city,value1,value2,value3,value4,transaction_status,method,date_time) VALUES (?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?)`,
               [data.id,
@@ -100,7 +99,6 @@ app.post("/verifypayment", (req, res) => {
                 }
               }
             );
-          }
         });
         res.status(200).send(response_data);
       },
@@ -118,34 +116,40 @@ app.get("/ipn", (req, res) => {
       order_id,
       (response_data) => {
         response_data.forEach((data) => {
-          db.all("SELECT * FROM shurjopay", (err, rows) => {
+          db.all(`SELECT * FROM shurjopay`, (err, rows) => {
             if (err) {
               throw err;
             }
-            if (data.sp_code == 1000 && rows[0].sp_code != 1000 ) {
-              db.run(
-                `INSERT INTO shurjopay (id,order_id,currency,amount,payable_amount,discsount_amount,disc_percent,received_amount,usd_amt,usd_rate,card_holder_name,card_number,phone_no,bank_trx_id,invoice_no,bank_status,customer_order_id,sp_code,sp_message,name,email,address,city,value1,value2,value3,value4,transaction_status,method,date_time) VALUES (?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?)`,
-                [data.id,
-                  data.order_id ,data.currency ,data.amount ,data.payable_amount ,data.discsount_amount ,data.disc_percent ,data.received_amount ,data.usd_amt ,data.usd_rate ,data.card_holder_name ,data.card_number ,data.phone_no ,data.bank_trx_id ,data.invoice_no ,data.bank_status ,data.customer_order_id ,data.sp_code ,data.sp_message ,data.name ,data.email ,data.address ,data.city ,data.value1 ,data.value2 ,data.value3 ,data.value4 ,data.transaction_status ,data.method ,data.date_time],
-                (err) => {
-                  if (err) {
-                    console.log(err);
-                  } else {
-                    console.log("Payment Update by shurjopay Successfully");
-                  }
-                }
-              );
-            }
-          });
+            rows.forEach((row) => {
+   
+          const idToUpdate = data.id;
+          const keys = Object.keys(data);
+          const values = Object.values(data);
+          if (data.sp_code == 1000 && row.sp_code!=1000 && data.id==row.id) {
+            const sql = `UPDATE shurjopay SET ${keys
+              .map((key) => `${key} = ?`)
+              .join(", ")}WHERE id = ?`;
+            db.run(sql, [...values, idToUpdate], function (err) {
+              if (err) {
+                console.log(err.message);
+              } else {
+                console.log(`Row(s) updated: ${this.changes} by Shurjopay`);
+              }
+              
+            });
+          } 
+        })
         });
         res.status(200).send(response_data);
       },
       error_handler
     );
+  });
   } catch (err) {
     console.log(err);
   }
 });
+
 
 app.get("/mypayment", (req, res) => {
   const email=req.query.email
