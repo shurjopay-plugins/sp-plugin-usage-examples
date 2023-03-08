@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "sp-package-ios-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shurjopay-plugins/sp-package-ios-swift.git",
+      "state" : {
+        "revision" : "6246807d2d4c623c098d6dfda8217223632c354e",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
