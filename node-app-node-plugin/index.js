@@ -173,6 +173,10 @@ const update_merchant_order_table = (data) => {
 
 app.post("/take-payment", (req, res) => {
   const orderDetails = req.body;
+  const payload={
+    ...orderDetails,
+    client_ip: req.ip
+  }
   shurjopay.gettoken_error_handler = function (error) {
     shurjopay.log(error.message, "error");
     res.status(400).send({ status: false, error: "Something went wrong!" });
@@ -183,7 +187,7 @@ app.post("/take-payment", (req, res) => {
   };
 
   try {
-    shurjopay.checkout(orderDetails, (response_data) => {
+    shurjopay.checkout(payload, (response_data) => {
       merchant_order_table(response_data);
       res.status(200).send(response_data);
     });
