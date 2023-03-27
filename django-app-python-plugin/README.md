@@ -5,7 +5,7 @@
 # **Installation**
 - Create a virtual env for the project
 ```
-python -m venv env
+python -m venv venv
 ```
 - Activate the virtual environment
 ```
@@ -21,7 +21,7 @@ git clone https://github.com/shurjopay-plugins/sp-plugin-python
 ```
 pip install -r requirements.txt
 ```
-- DB Migration
+- Migrate database
 ```
 python manage.py makemigrations
 python manage.py migrate
@@ -51,4 +51,3 @@ python manage.py runserver
 ### [shurjopay Plugins ](https://github.com/shurjopay-plugins)
 
 ## Contact  [shurjopay](https://shurjopay.com.bd/#contacts)
-    
