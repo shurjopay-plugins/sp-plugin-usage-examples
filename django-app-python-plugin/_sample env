@@ -1,7 +1,0 @@
-SP_USERNAME=demo
-SP_PASSWORD=demowb4&n$6un28$
-SP_ENDPOINT=https://dev.engine.shurjopayment.com
-SP_RETURN=http://localhost:8000/return
-SP_CANCEL=http://localhost:8000/cancel
-SP_LOGDIR=/var/log/shurjopay/shurjopay.log
-SP_PREFIX=SP_PLUGIN_PYTHON
