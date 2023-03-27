@@ -9,19 +9,13 @@ python -m venv venv
 ```
 - Activate the virtual environment
 ```
-source env/bin/activate
-```
-> 📝 **NOTE** Make sure to install [sp-plugin-python](https://github.com/shurjopay-plugins)
-- `clone` the example app repository
-
-```
-git clone https://github.com/shurjopay-plugins/sp-plugin-python
+source venv/bin/activate
 ```
 - Install project requirements
 ```
 pip install -r requirements.txt
 ```
-- Migrate database
+- Migrate DataBase
 ```
 python manage.py makemigrations
 python manage.py migrate
