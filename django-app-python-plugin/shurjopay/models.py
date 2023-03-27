@@ -16,6 +16,10 @@ class PaymentDetails(models.Model):
     intent = models.CharField(max_length=10)
     transactionStatus = models.CharField(max_length=20)
     
+    class Meta:
+        managed = False
+   
+
 class VerifiedPayment(models.Model):
     id = models.IntegerField(primary_key=True)
     order_id = models.CharField(max_length=255)
@@ -48,11 +52,16 @@ class VerifiedPayment(models.Model):
     transaction_status = models.CharField(max_length=255, null=True)
     method = models.CharField(max_length=255, null=True)
     date_time = models.DateTimeField(null=True)
+    
+    class Meta:
+        managed = False 
+
+
 
 class MarchentOrder(models.Model):
     my_order_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
     cu_name = models.CharField(max_length=50, null=True)
     cu_mobile = models.CharField(max_length=20, null=True)
     cu_email = models.EmailField(max_length=30, null=True)
@@ -66,10 +75,10 @@ class MarchentOrder(models.Model):
     sh_phone = models.CharField(max_length=20, null=True)
     
     class Meta:
-        db_table = 'marchent_table'
+        db_table = 'marchent_order'
 
 
-class SPTransactions(models.Model):
+class Transactions(models.Model):
     id = models.AutoField(primary_key=True)
     sp_trxn_id = models.CharField(max_length=20)
     tx_status = models.CharField(max_length=20)
@@ -78,7 +87,7 @@ class SPTransactions(models.Model):
     tx_amount = models.DecimalField(max_digits=10, decimal_places=2)
     tx_currency = models.CharField(max_length=15)
     payment_channel = models.CharField(max_length=20,null=True)
-    tx_start_time = models.DateTimeField()
+    tx_start_time = models.DateTimeField(auto_now_add=True)
     sp_tx_time = models.DateTimeField(null=True)
     tx_init_res = models.OneToOneField(PaymentDetails, on_delete=models.CASCADE,null=True)
     tx_vrfy_res = models.OneToOneField(VerifiedPayment, on_delete=models.CASCADE,null=True)
@@ -87,5 +96,5 @@ class SPTransactions(models.Model):
     my_order = models.ForeignKey(MarchentOrder, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'sp_transactions'
+        db_table = 'transactions'
         
