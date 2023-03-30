@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import environ
+from shurjopay_plugin import ShurjoPayConfigModel
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,13 +20,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Shurjopay Credentials
 env = environ.Env()
 environ.Env.read_env(BASE_DIR / '.env')
-SP_USERNAME=env('SP_USERNAME')
-SP_PASSWORD=env('SP_PASSWORD')
-SP_ENDPOINT=env('SP_ENDPOINT')
-SP_RETURN=env('SP_RETURN')
-SP_CANCEL=env('SP_CANCEL')
-SP_PREFIX=env('SP_PREFIX')
-SP_LOGDIR=env('SP_LOGDIR')
+
+SHURJOPAY_CONFIG = ShurjoPayConfigModel(
+        SP_USERNAME=env('SP_USERNAME'),
+        SP_PASSWORD=env('SP_PASSWORD'),
+        SP_ENDPOINT=env('SP_ENDPOINT'),
+        SP_RETURN=env('SP_RETURN'),
+        SP_CANCEL=env('SP_CANCEL'),
+        SP_PREFIX=env('SP_PREFIX'),
+        SP_LOGDIR=env('SP_LOGDIR'),
+    )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -42,7 +46,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -134,3 +137,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False

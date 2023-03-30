@@ -1,5 +1,6 @@
 Django
 django-environ
 requests
+shurjopay-plugin
 
 

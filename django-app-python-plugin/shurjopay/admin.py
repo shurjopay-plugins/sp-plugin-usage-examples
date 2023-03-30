@@ -1,4 +1,6 @@
 from django.contrib import admin
-from .models import OrderHistory
-admin.site.register(OrderHistory)
+from shurjopay.models import *
+admin.site.register(MarchentOrder)
+admin.site.register(SPTransactions)
+
 # Register your models here.
