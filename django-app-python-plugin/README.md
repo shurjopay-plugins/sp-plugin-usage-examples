@@ -11,16 +11,11 @@ python -m venv venv
 ```
 source venv/bin/activate
 ```
+
 - Install project requirements
 ```
 pip install -r requirements.txt
 ```
-- Migrate DataBase
-```
-python manage.py makemigrations
-python manage.py migrate
-```
-
 
 - **Create .env file to save Shurjopay Configurations**
 
@@ -36,11 +31,16 @@ SP_LOGDIR=/var/log/shurjopay/shurjopay.log
 SP_PREFIX=SP_PLUGIN_PYTHON
 ```
 
+- Migrate Data Base
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
 - Start the project locally
 ```
 python manage.py runserver
 ```
-
 
 ### [shurjopay Plugins ](https://github.com/shurjopay-plugins)
 
