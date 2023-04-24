@@ -123,7 +123,7 @@ app.post("/payment-status-update", (req, res) => {
           where: { sp_trxn_id: sp_trxn_id },
         });
         if (!orderDetails) {
-          throw new Error(`Order not found for id ${my_order_id}`);
+          throw new Error(`Order not found for id ${sp_trxn_id}`);
         }
         if (orderDetails.tx_status !== response_data.transaction_status) {
           payment_details(sp_trxn_id, response_data);
