@@ -42,7 +42,9 @@ class ShurjopayControllers extends Controller
 
        return $this->sp_instance->makePayment($payment_request);
    }
-    public function verify_payment(Request $sp_order_id){
-        return $this->sp_instance->verifyPayment($sp_order_id);
+    public function verify_payment(Request $request){
+        $order_id = $request->order_id;
+        $response=$this->sp_instance->verifyPayment($order_id);
+        print_r($response);exit;
     }
 }
