@@ -8,5 +8,4 @@ urlpatterns = [
     path('ipn', views.ipn,name='ipn'),
     path('return', views.sp_return,name='return'),
     path('cancel', views.sp_cancel,name='cancel'),
-    path('check-payment', views.check_payment_view),
 ]
