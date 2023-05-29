@@ -104,6 +104,7 @@
         src="https://shurjopay.com.bd/dev/images/shurjoPay.png"
         alt="Shurjopay"
         style="width: 50%; margin-left: 25%"
+      />
       <form action="{% url 'make-sp-payment' %}" method="post">
         {% csrf_token %}
 
@@ -206,7 +207,7 @@
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
           <p class="link">
-            <a href="check-payment">Check Payment?</a>
+            <a href="shurjopay/check-payment">Check Payment?</a>
           </p>
           <p class="link">
             Powered by <a href="https://shurjopay.com.bd/">Shurjopay</a>
